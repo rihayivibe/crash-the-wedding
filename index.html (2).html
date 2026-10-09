@@ -475,4 +475,31 @@ requestAnimationFrame(frame)}
 document.addEventListener('visibilitychange',function(){run=!document.hidden;if(run)frame()});frame();
 $$('[data-reg]').forEach(function(a){a.addEventListener('pointerdown',function(e){burst(e.clientX,e.clientY,60)})});
 })();
-</script></body></html>
+</script>
+
+<audio id="weddingMusic" autoplay loop preload="auto">
+  <source src="./audio/baraat-dhol.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const music = document.getElementById("weddingMusic");
+
+  music.volume = 0.8;
+
+  window.addEventListener("load", () => {
+    music.play().catch(() => {
+      const startMusic = () => {
+        music.play().catch(console.error);
+      };
+
+      document.addEventListener("pointerdown", startMusic, {
+        once: true
+      });
+
+      document.addEventListener("keydown", startMusic, {
+        once: true
+      });
+    });
+  });
+</script>
+</body></html>
