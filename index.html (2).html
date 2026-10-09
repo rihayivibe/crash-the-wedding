@@ -477,29 +477,35 @@ $$('[data-reg]').forEach(function(a){a.addEventListener('pointerdown',function(e
 })();
 </script>
 
-<audio id="weddingMusic" autoplay loop preload="auto">
-<source src="./baraat-dhol.mp3.mp3" type="audio/mpeg">
-</audio>
-=
-<script>
-  const music = document.getElementById("weddingMusic");
 
+<audio id="weddingMusic" loop preload="auto" playsinline>
+  <source src="./baraat-dhol.mp3.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+(() => {
+  const music = document.getElementById("weddingMusic");
+  if (!music) return;
+
+  music.loop = true;
   music.volume = 0.8;
 
-  window.addEventListener("load", () => {
-    music.play().catch(() => {
-      const startMusic = () => {
-        music.play().catch(console.error);
-      };
-
-      document.addEventListener("pointerdown", startMusic, {
-        once: true
-      });
-
-      document.addEventListener("keydown", startMusic, {
-        once: true
-      });
-    });
+  // Try autoplay when the page loads
+  music.play().catch(() => {
+    // Phones usually require a real user interaction
   });
+
+  // Start on the first tap anywhere on the page
+  function startMusic() {
+    music.play().catch(error => {
+      console.log("Music playback failed:", error);
+    });
+  }
+
+  document.addEventListener("pointerdown", startMusic);
+  document.addEventListener("touchstart", startMusic);
+  document.addEventListener("click", startMusic);
+})();
 </script>
+
 </body></html>
