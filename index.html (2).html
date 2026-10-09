@@ -286,10 +286,56 @@ footer{padding:36px 0 120px;text-align:center;color:var(--soft);font-size:15px}
   .mob{display:flex}
   .mob a{font-size:14.5px;padding:11px 8px}
 }
+
+/* ===== GATE INTRO ===== */
+body.lock{overflow:hidden}
+#gate{position:fixed;inset:0;z-index:200;display:flex;overflow:hidden;background:#2f0007;cursor:pointer;-webkit-tap-highlight-color:transparent}
+#gate.gone{display:none}
+.door{position:relative;flex:1;height:100%;background:
+ radial-gradient(circle at 50% 50%,rgba(255,182,39,.16) 0 9%,transparent 10%),
+ radial-gradient(circle at 50% 50%,transparent 0 22%,rgba(255,182,39,.12) 23% 24%,transparent 25%),
+ repeating-linear-gradient(90deg,rgba(0,0,0,.18) 0 2px,transparent 2px 38px),
+ linear-gradient(180deg,#8a0615,#5a000b);
+ border:3px solid var(--gold);box-shadow:inset 0 0 0 8px #4a0410,inset 0 0 0 10px rgba(255,182,39,.55);transition:transform 1.4s cubic-bezier(.7,0,.2,1);will-change:transform}
+.door.l{border-right-width:2px}.door.r{border-left-width:2px}
+.door:after{content:"";position:absolute;top:76%;width:26px;height:26px;border-radius:50%;border:4px solid var(--gold);background:#4a0410;transform:translateY(-50%)}
+.door.l:after{right:18px}.door.r:after{left:18px}
+#gate.open .door.l{transform:translateX(-102%)}
+#gate.open .door.r{transform:translateX(102%)}
+.gtoran{position:absolute;top:0;left:0;right:0;height:30px;z-index:3;background:radial-gradient(circle at 14px 0,var(--gold) 12px,transparent 13px) repeat-x;background-size:28px 28px}
+.gsign{position:absolute;z-index:4;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;width:min(86vw,420px);transition:opacity .5s,transform .9s}
+#gate.open .gsign{opacity:0;transform:translate(-50%,-60%) scale(.9)}
+.gsign .dev{font-size:26px}
+.gsign h2{font-size:clamp(34px,9vw,60px);margin:6px 0 14px;color:var(--ink)}
+.gsign h2 em{color:var(--gold)}
+.knock{display:inline-block;background:var(--gold);color:#4a0410;font-weight:700;border-radius:999px;padding:12px 26px;font-size:16px;box-shadow:0 6px 0 #b97d0a,0 14px 30px rgba(0,0,0,.45);animation:kn 1.3s ease-in-out infinite}
+.gsign small{display:block;margin-top:16px;color:var(--soft);font-size:13px;letter-spacing:.5px}
+@keyframes kn{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+#gate.knocking .gsign{animation:shk .12s linear 6}
+#gate.knocking .knock{animation:none}
+@keyframes shk{0%,100%{transform:translate(-50%,-50%)}25%{transform:translate(calc(-50% - 6px),-50%)}75%{transform:translate(calc(-50% + 6px),-50%)}}
+.gskip{position:absolute;z-index:5;bottom:calc(18px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:none;border:0;color:var(--soft);font:600 12px Poppins,sans-serif;text-decoration:underline;cursor:pointer;transition:opacity .4s}
+#gate.open .gskip{opacity:0}
+#gate.open{pointer-events:none}
+#gate.open .gtoran{opacity:0;transition:opacity .5s}
+/* music button */
+#mute{position:fixed;z-index:70;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));width:44px;height:44px;border-radius:50%;border:2px solid var(--gold);background:rgba(74,4,16,.92);color:var(--gold);font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+#mute.show{display:flex}
+@media(max-width:600px){#mute{bottom:calc(78px + env(safe-area-inset-bottom,0px));width:38px;height:38px;font-size:17px;right:10px}.gsign .dev{font-size:20px}.knock{font-size:14px;padding:10px 20px}.door:after{width:20px;height:20px}}
+@media(prefers-reduced-motion:reduce){.door{transition:none}.knock{animation:none}#gate.knocking .gsign{animation:none}}
 @media(prefers-reduced-motion:reduce){.ticker div,.poster,.panel{animation:none}}
 </style>
 </head>
-<body>
+<body class="lock">
+<div id="gate" role="dialog" aria-label="Wedding gate: tap to enter the site">
+<div class="gtoran" aria-hidden="true"></div>
+<div class="door l"></div><div class="door r"></div>
+<div class="gsign"><div class="dev">शुभ विवाह</div><h2 class="an">Shaadi mein <em>zaroor aana</em></h2>
+<span class="knock">🚪 Knock knock! Tap to open</span><small>🔊 Music plays when the gate opens</small></div>
+<button class="gskip" type="button" id="gskip">Enter without music</button>
+</div>
+<button id="mute" type="button" aria-label="Mute music" title="Music on/off">🔊</button>
+<noscript><style>#gate{display:none!important}body.lock{overflow:auto!important}</style></noscript>
 <div class="toran" aria-hidden="true"></div>
 <header><div class="wrap nav"><a class="logo" href="#top" aria-label="Crash the Wedding home">Crash <b>the</b> Wedding</a>
 <nav aria-label="Main"><ul><li><a href="#sides">Pick a Side</a></li><li><a href="#inside">The Night</a></li><li><a href="#tickets">Tickets</a></li><li><a href="#delhi">Delhi</a></li><li><a href="#rules">Rules</a></li><li><a href="#faq">FAQ</a></li></ul></nav>
@@ -459,6 +505,32 @@ function cp(b){var t="akshadd111@gmail.com";function ok(){b.textContent="Copied!
         show(n);n.focus();e.preventDefault();
       }
     });
+  });
+})();
+
+(function(){
+  /* Put your music files next to index.html and list them here. They play one after another, on loop. */
+  var TRACKS=['music1.mp3','music2.mp3'];
+  var gate=document.getElementById('gate'),mute=document.getElementById('mute'),i=0,busy=false,a=new Audio();
+  a.volume=.8;
+  a.addEventListener('ended',function(){i=(i+1)%TRACKS.length;a.src=TRACKS[i];a.play().catch(function(){})});
+  a.addEventListener('error',function(){ if(TRACKS.length>1){i=(i+1)%TRACKS.length;a.src=TRACKS[i];a.play().catch(function(){})} });
+  if(TRACKS.length===1)a.loop=true;
+  function setIcon(){mute.textContent=a.paused||a.muted?'🔇':'🔊';mute.setAttribute('aria-label',a.paused||a.muted?'Play music':'Mute music')}
+  function enter(withMusic){
+    if(busy)return;busy=true;
+    var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if(withMusic){a.src=TRACKS[i];a.play().then(setIcon).catch(setIcon)}  /* must run inside the tap for browsers to allow sound */
+    mute.classList.add('show');setIcon();
+    function open(){gate.classList.remove('knocking');gate.classList.add('open');
+      setTimeout(function(){gate.classList.add('gone');document.body.classList.remove('lock')},reduce?50:1500)}
+    if(reduce){open()}else{gate.classList.add('knocking');setTimeout(open,800)}
+  }
+  gate.addEventListener('click',function(e){enter(e.target.id!=='gskip')});
+  gate.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){enter(true);e.preventDefault()}});
+  gate.tabIndex=0;
+  mute.addEventListener('click',function(){
+    if(a.paused){a.play().then(setIcon).catch(setIcon)}else{a.pause();setIcon()}
   });
 })();
 </script>
