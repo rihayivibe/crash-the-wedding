@@ -486,51 +486,73 @@ body.lock{overflow:hidden}
 <footer><div class="wrap">Crash the Wedding · Delhi NCR · December 2026 · Presented by Rihayi × Elitecrashers<br>Questions? <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=akshadd111%40gmail.com&amp;su=Crash%20the%20Wedding" target="_blank" rel="noopener" style="text-decoration:underline">akshadd111@gmail.com</a></div></footer>
 <div class="mob"><a class="r" href="https://docs.google.com/forms/d/e/1FAIpQLSeP4Cob_ebbn75_-JgjRkySUTtOxLyt70-odjgSwiytQNzfdg/viewform?usp=header" target="_blank" rel="noopener">Register Now</a><a class="e" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=akshadd111%40gmail.com&amp;su=Crash%20the%20Wedding" target="_blank" rel="noopener">Email us</a></div>
 <script>
-function cp(b){var t="akshadd111@gmail.com";function ok(){b.textContent="Copied!";setTimeout(function(){b.textContent="Copy"},1800)}try{navigator.clipboard.writeText(t).then(ok,fb)}catch(e){fb()}function fb(){try{var a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();document.execCommand("copy");document.body.removeChild(a);ok()}catch(e){b.textContent=t}}}
+<script>
 (function(){
-  var tabs=[].slice.call(document.querySelectorAll('.tab'));
-  function show(t){
-    tabs.forEach(function(x){
-      var on=x===t;
-      x.setAttribute('aria-selected',on);
-      x.tabIndex=on?0:-1;
-      document.getElementById(x.getAttribute('aria-controls')).hidden=!on;
-    });
-  }
-  tabs.forEach(function(t,i){
-    t.addEventListener('click',function(){show(t)});
-    t.addEventListener('keydown',function(e){
-      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
-        var n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];
-        show(n);n.focus();e.preventDefault();
-      }
-    });
-  });
-})();
+  /* Tries the clean name first, then the double-extension name as a fallback */
+  var TRACKS=['baraat-dhol.mp3','baraat-dhol.mp3.mp3'];
+  var gate=document.getElementById('gate'),
+      mute=document.getElementById('mute'),
+      busy=false, idx=0, a=new Audio();
 
-(function(){
-  /* Put your music files next to index.html and list them here. They play one after another, on loop. */
-  var TRACKS=['music1.mp3','music2.mp3'];
-  var gate=document.getElementById('gate'),mute=document.getElementById('mute'),i=0,busy=false,a=new Audio();
+  a.loop=true;          /* plays continuously on repeat */
+  a.preload='auto';
   a.volume=.8;
-  a.addEventListener('ended',function(){i=(i+1)%TRACKS.length;a.src=TRACKS[i];a.play().catch(function(){})});
-  a.addEventListener('error',function(){ if(TRACKS.length>1){i=(i+1)%TRACKS.length;a.src=TRACKS[i];a.play().catch(function(){})} });
-  if(TRACKS.length===1)a.loop=true;
-  function setIcon(){mute.textContent=a.paused||a.muted?'🔇':'🔊';mute.setAttribute('aria-label',a.paused||a.muted?'Play music':'Mute music')}
+  a.src=TRACKS[0];
+
+  /* if a file name 404s, try the next one */
+  a.addEventListener('error',function(){
+    if(idx<TRACKS.length-1){
+      idx++; a.src=TRACKS[idx]; a.load();
+      if(!a.dataset.started) return;
+      a.play().then(setIcon).catch(setIcon);
+    }
+  });
+  a.addEventListener('play',setIcon);
+  a.addEventListener('pause',setIcon);
+  a.addEventListener('volumechange',setIcon);
+
+  function setIcon(){
+    var off=a.paused||a.muted;
+    mute.textContent=off?'🔇':'🔊';
+    mute.setAttribute('aria-label',off?'Unmute music':'Mute music');
+  }
+
   function enter(withMusic){
-    if(busy)return;busy=true;
+    if(busy)return; busy=true;
     var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-    if(withMusic){a.src=TRACKS[i];a.play().then(setIcon).catch(setIcon)}  /* must run inside the tap for browsers to allow sound */
-    mute.classList.add('show');setIcon();
-    function open(){gate.classList.remove('knocking');gate.classList.add('open');
-      setTimeout(function(){gate.classList.add('gone');document.body.classList.remove('lock')},reduce?50:1500)}
+    if(withMusic){
+      a.muted=false;
+      a.dataset.started='1';
+      a.play().then(setIcon).catch(setIcon); /* must run inside the tap */
+    }
+    mute.classList.add('show'); setIcon();
+    function open(){
+      gate.classList.remove('knocking');
+      gate.classList.add('open');
+      setTimeout(function(){
+        gate.classList.add('gone');
+        document.body.classList.remove('lock');
+      },reduce?50:1500);
+    }
     if(reduce){open()}else{gate.classList.add('knocking');setTimeout(open,800)}
   }
+
   gate.addEventListener('click',function(e){enter(e.target.id!=='gskip')});
-  gate.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){enter(true);e.preventDefault()}});
+  gate.addEventListener('keydown',function(e){
+    if(e.key==='Enter'||e.key===' '){enter(true);e.preventDefault()}
+  });
   gate.tabIndex=0;
+
+  /* mute / unmute button */
   mute.addEventListener('click',function(){
-    if(a.paused){a.play().then(setIcon).catch(setIcon)}else{a.pause();setIcon()}
+    if(a.paused){                 /* never started, or "enter without music" */
+      a.muted=false;
+      a.dataset.started='1';
+      a.play().then(setIcon).catch(setIcon);
+    }else{
+      a.muted=!a.muted;           /* keeps playing silently, so unmute resumes instantly */
+      setIcon();
+    }
   });
 })();
 </script>
