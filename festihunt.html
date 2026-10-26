@@ -9,6 +9,7 @@
 
 <!-- Preload assets -->
 <link rel="preload" as="image" href="ec.img3.png" fetchpriority="high">
+<link rel="preload" as="image" href="ec.img4.png">
 <link rel="preload" as="audio" href="music.mp3.mp3">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -207,7 +208,7 @@ header {
 .cta { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 24px; }
 .tbd { margin-top: 18px; color: var(--mint-accent); font-weight: 600; font-size: 14px; }
 
-/* Hero Retro Poster Card (Matching Image 4 Frame Style) */
+/* Hero Retro Poster Card */
 .poster-wrap { position: relative; justify-self: center; }
 .psy-card {
   position: relative; max-width: 410px; width: 100%; 
@@ -328,7 +329,7 @@ details p { color: var(--ink-secondary); margin-top: 8px; font-size: 14.5px; }
 .final { text-align: center; background: var(--bg-sand-warm); border-top: 1px solid var(--line-light); border-bottom: 1px solid var(--line-light); padding: 68px 0; }
 footer { padding: 34px 0 100px; text-align: center; color: var(--ink-muted); font-size: 14px; }
 
-/* Social Proof Floating Toast (Image 4 Style) */
+/* Social Proof Floating Toast */
 .social-proof-toast {
   position: fixed;
   left: 20px;
@@ -462,7 +463,7 @@ footer { padding: 34px 0 100px; text-align: center; color: var(--ink-muted); fon
 </header>
 
 <main>
-  <!-- Hero Section (Off-White Background with Crisp Dark Green Typography) -->
+  <!-- Hero Section -->
   <section class="hero" id="top">
     <div class="wrap">
       <div>
@@ -537,10 +538,11 @@ footer { padding: 34px 0 100px; text-align: center; color: var(--ink-muted); fon
     </div>
   </section>
 
-  <!-- Mystery Hunt Feature Split -->
+  <!-- Mystery Hunt Feature Split (Updated to ec.img4.png and Email Dispatch) -->
   <section id="hunt">
     <div class="wrap split">
-      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Delhi Winter Gathering">
+      <!-- Attached ec.img4.png from your repository -->
+      <img src="ec.img4.png" alt="Winter Mystery Hunt Clues & Gathering" onerror="this.src='https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80'">
       <div>
         <div class="eyebrow">Team-based Detective Mission</div>
         <h2 class="an">Crack the <em>mystery</em></h2>
@@ -548,7 +550,8 @@ footer { padding: 34px 0 100px; text-align: center; color: var(--ink-muted); fon
         <p class="lead">Five people per team. A locked mystery box. A trail of cryptic riddles hidden across the venue. Think carefully, notice what others miss, and be the first squad to open the box to win the grand mystery gift.</p>
         <div class="cta">
           <a class="btn gold" href="https://docs.google.com/forms/d/1soCJJ6o_t4ZEopKXkwk9SIXdCLQMktyVuqiGak_Y38Q/edit" target="_blank" rel="noopener">Assemble Your Squad</a>
-          <button class="btn ghost" onclick="shareWhatsApp()">📲 WhatsApp Squad Invite</button>
+          <!-- Email Draft Trigger -->
+          <a class="btn ghost" href="mailto:akshadd111@gmail.com?subject=Winter%20Club%20Squad%20Inquiry%20%7C%20Festihunt%20Passes&body=Hi%20Akshad%20%2F%20Winter%20Club%20Team%2C%0A%0AWe%20are%20putting%20together%20a%20squad%20for%20The%20Winter%20Festihunt%20in%20Delhi%20NCR.%0A%0A-%20Squad%20Lead%20Name%3A%0A-%20Squad%20Size%20(Solo%20%2F%20Group)%3A%0A-%20Preferred%20Pass%20(₹299%20Entry%20%2F%20₹599%20Mystery%20Hunt)%3A%0A-%20Any%20Questions%20or%20Notes%3A%0A%0ACheers%2C">✉️ Contact Squad Desk</a>
         </div>
       </div>
     </div>
@@ -633,16 +636,11 @@ footer { padding: 34px 0 100px; text-align: center; color: var(--ink-muted); fon
 <!-- Sticky Mobile CTA -->
 <div class="mob">
   <a class="r" href="https://docs.google.com/forms/d/1soCJJ6o_t4ZEopKXkwk9SIXdCLQMktyVuqiGak_Y38Q/edit" target="_blank" rel="noopener">Register Now</a>
-  <a class="e" href="javascript:void(0)" onclick="shareWhatsApp()">Share Squad</a>
+  <!-- Mobile Email Trigger -->
+  <a class="e" href="mailto:akshadd111@gmail.com?subject=Winter%20Club%20Squad%20Inquiry%20%7C%20Festihunt%20Passes&body=Hi%20Akshad%20%2F%20Winter%20Club%20Team%2C%0A%0AWe%20are%20putting%20together%20a%20squad%20for%20The%20Winter%20Festihunt%20in%20Delhi%20NCR.%0A%0A-%20Squad%20Lead%20Name%3A%0A-%20Squad%20Size%20(Solo%20%2F%20Group)%3A%0A-%20Preferred%20Pass%20(₹299%20Entry%20%2F%20₹599%20Mystery%20Hunt)%3A%0A-%20Any%20Questions%20or%20Notes%3A%0A%0ACheers%2C">Email Squad Desk</a>
 </div>
 
 <script>
-/* WhatsApp Share */
-function shareWhatsApp() {
-  const text = "Bro, check this out: Delhi is getting a secret winter fest & 5-person Mystery Hunt called The Winter Club (₹299 entry, ₹599 for the clue hunt). I'm registering—let's sign up together before the 300 cap fills up: " + window.location.href;
-  window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(text), "_blank");
-}
-
 /* Audio Controller & Gate Unlock */
 (function() {
   const gate = document.getElementById('gate');
@@ -655,7 +653,7 @@ function shareWhatsApp() {
     <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
   `;
   const ICON_MUTED = `
-    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
   `;
 
   audio.volume = 0.8;
@@ -721,4 +719,4 @@ function shareWhatsApp() {
 })();
 </script>
 </body>
-</html>\
+</html>
