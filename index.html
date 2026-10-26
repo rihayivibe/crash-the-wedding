@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rihayi – Delhi NCR Winter 2026</title>
+<meta name="description" content="Rihayi offline social discovery in Delhi NCR. Curated codes, unscripted nights.">
+<meta name="theme-color" content="#121212">
+
+<!-- Typography: Cormorant Garamond & Playfair Display (Cinematic Vintage Style) + Plus Jakarta Sans -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-deep: #121212;
+  --bg-sidebar: #171717;
+  --bg-card: #222222;
+  --bg-card-hover: #2c2c2c;
+  --border-muted: rgba(255, 255, 255, 0.08);
+  --border-gold: rgba(226, 176, 103, 0.28);
+  --text-primary: #FFFFFF;
+  --text-muted: #b5b1a8;
+  --text-dim: #6e6b63;
+  --accent-gold: #e2b067;
+  --accent-gold-soft: rgba(226, 176, 103, 0.12);
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-pill: 9999px;
+  --sidebar-w: 240px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background Atmospheric Gradient Glow */
+body::before {
+  content: '';
+  position: fixed;
+  top: -150px;
+  right: -150px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(226, 176, 103, 0.06) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cinematic-font {
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  letter-spacing: -0.02em;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* SIDEBAR NAVIGATION */
+aside.sidebar {
+  width: var(--sidebar-w);
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border-muted);
+  padding: 24px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  flex-shrink: 0;
+  z-index: 40;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.brand-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--text-primary);
+  color: var(--bg-deep);
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+.brand-text h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: var(--text-primary);
+  line-height: 1;
+  font-weight: 700;
+}
+
+.nav-group-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+  padding-left: 6px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 13px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+.nav-link svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; flex-shrink: 0; }
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+.nav-link.active {
+  background: var(--bg-card);
+  color: var(--accent-gold);
+  border: 1px solid var(--border-gold);
+}
+.nav-link.active svg { stroke: var(--accent-gold); }
+
+/* SIDEBAR FOOTER CONCIERGE BUTTON */
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-muted);
+}
+.btn-concierge {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-muted);
+  color: var(--text-primary);
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.btn-concierge:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-gold);
+  color: var(--accent-gold);
+}
+
+/* MAIN CONTENT */
+main.main-area {
+  flex: 1;
+  padding: 22px 30px 80px;
+  max-width: 1020px;
+  margin: 0 auto;
+}
+
+/* TOP STATUS BAR */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-muted);
+  margin-bottom: 22px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.location-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-muted);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.counter-chip {
+  background: var(--bg-card);
+  border: 1px solid var(--border-muted);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.counter-chip span.sym { color: var(--accent-gold); }
+.secret-gate-badge {
+  background: #000;
+  color: var(--accent-gold);
+  border: 1px solid var(--border-gold);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* VIEW TOGGLING */
+.view-panel {
+  display: none;
+  animation: fadeIn 0.25s ease-out forwards;
+}
+.view-panel.active {
+  display: block;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 1. CODES HUB VIEW */
+.hub-intro-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  margin-bottom: 22px;
+  position: relative;
+  overflow: hidden;
+}
+.hub-eyebrow {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  display: block;
+  margin-bottom: 6px;
+}
+.hub-title {
+  font-size: clamp(28px, 4.2vw, 46px);
+  color: var(--text-primary);
+  line-height: 1.08;
+  font-weight: 600;
+}
+.hub-desc {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+.hand-written {
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  font-family: 'Caveat', cursive;
+  font-size: 21px;
+  color: var(--accent-gold);
+  transform: rotate(-3deg);
+  opacity: 0.9;
+}
+
+/* SIDE-BY-SIDE MOBILE & DESKTOP CODES GRID */
+.codes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.code-preview-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-lg);
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+.code-preview-box:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-gold);
+  background: var(--bg-card-hover);
+}
+.poster-aspect {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #181818;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+.poster-aspect img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.code-box-meta {
+  padding: 10px 4px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.code-box-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.code-box-sub {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  padding: 0 4px 4px;
+}
+
+/* PROTOCOLS & SAFETY STRIP */
+.protocols-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.protocol-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+.protocol-num {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+}
+.protocol-card h4 {
+  font-size: 13.5px;
+  font-weight: 700;
+  margin: 4px 0 6px;
+}
+.protocol-card p {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* 300 CLAUSE / TRUST SHIELD */
+.trust-shield-card {
+  background: linear-gradient(180deg, #1f1d19 0%, #171614 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  margin-bottom: 24px;
+}
+.trust-shield-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.trust-shield-card p {
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.55;
+  margin-top: 6px;
+}
+
+/* ACCORDION FAQ SECTION */
+.faq-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-lg);
+  padding: 24px 22px;
+  margin-bottom: 24px;
+}
+.faq-header {
+  margin-bottom: 16px;
+}
+.faq-header h3 {
+  font-size: 22px;
+  font-weight: 700;
+}
+.faq-item {
+  border-bottom: 1px solid var(--border-muted);
+  padding: 12px 0;
+}
+.faq-item:last-child { border-bottom: none; }
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 13.5px;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+.faq-question:hover { color: var(--accent-gold); }
+.faq-answer {
+  display: none;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  padding-top: 8px;
+}
+.faq-item.open .faq-answer { display: block; }
+.faq-item.open .faq-icon { transform: rotate(45deg); color: var(--accent-gold); }
+.faq-icon { transition: transform 0.2s; font-size: 16px; font-weight: 700; }
+
+/* 4. COMMUNITY VIEW */
+.comm-hub-header {
+  margin-bottom: 18px;
+}
+.comm-hub-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+}
+.comm-hub-header p {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-top: 2px;
+}
+.social-outposts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.social-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-lg);
+  padding: 20px 16px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+.social-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-gold);
+  background: var(--bg-card-hover);
+}
+.social-badge {
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 6px;
+}
+.social-card h4 {
+  font-size: 15.5px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.social-card p {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-bottom: 14px;
+  flex: 1;
+}
+.social-action {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* MOBILE BOTTOM BAR */
+.mobile-bottom-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(18, 18, 18, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--border-muted);
+  padding: 8px 6px calc(8px + env(safe-area-inset-bottom));
+  z-index: 50;
+  justify-content: space-around;
+  align-items: center;
+}
+.mobile-nav-btn {
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-dim);
+  gap: 3px;
+  cursor: pointer;
+  padding: 4px 8px;
+  text-decoration: none;
+}
+.mobile-nav-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+.mobile-nav-btn.active { color: var(--accent-gold); }
+
+/* RESPONSIVE TUNING */
+@media (max-width: 900px) {
+  aside.sidebar { display: none; }
+  main.main-area { padding: 14px 12px 90px; }
+  .mobile-bottom-bar { display: flex; }
+  .social-outposts-grid { grid-template-columns: 1fr; }
+  .protocols-grid { grid-template-columns: 1fr; }
+  .hand-written { display: none; }
+}
+
+/* MOBILE 1-SCREEN VIEW FOR CODES (2-COLUMN HORIZONTAL GRID) */
+@media (max-width: 600px) {
+  .codes-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .code-preview-box {
+    padding: 8px;
+  }
+  .code-box-title {
+    font-size: 14px;
+  }
+  .code-box-meta span {
+    font-size: 11px;
+  }
+  .hub-intro-card {
+    padding: 20px 16px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="layout">
+  
+  <!-- SIDEBAR (Desktop) -->
+  <aside class="sidebar">
+    <div class="brand" onclick="switchTab('codes')">
+      <div class="brand-icon">R</div>
+      <div class="brand-text">
+        <h1>Rihayi</h1>
+      </div>
+    </div>
+
+    <div class="nav-group-label">Navigation</div>
+    <ul class="nav-links">
+      <li>
+        <div class="nav-link active" id="nav-codes" onclick="switchTab('codes')">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Codes Hub
+        </div>
+      </li>
+      <li>
+        <!-- Desktop link to elitecrashers.html -->
+        <a href="elitecrashers.html" class="nav-link" id="nav-code01">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
+          Code 01 (Shaadi)
+        </a>
+      </li>
+      <li>
+        <!-- Desktop link to festihunt.html -->
+        <a href="festihunt.html" class="nav-link" id="nav-code02">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          Code 02 (Hunt)
+        </a>
+      </li>
+      <li>
+        <div class="nav-link" id="nav-community" onclick="switchTab('community')">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          Community
+        </div>
+      </li>
+    </ul>
+
+    <!-- Discreet Contact Drawer Link -->
+    <div class="sidebar-footer">
+      <a href="mailto:akshadd111@gmail.com?subject=Rihayi%20Desk%20Inquiry%20%7C%20Access%20%26%20Screening&body=Hi%20Rihayi%20Team%2C%0A%0AI%20am%20reaching%20out%20regarding%20the%20Delhi%20Winter%202026%20gatherings.%0A%0A-%20My%20Name%3A%0A-%20City%20Quadrant%20(e.g.%20South%20Delhi%20%2F%20Gurugram)%3A%0A-%20My%20Query%20%2F%20Collaboration%20Note%3A%0A%0ABest%2C" class="btn-concierge">
+        <span>✉️ Official Concierge</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN VIEWPORT -->
+  <main class="main-area">
+
+    <!-- Top Status Bar -->
+    <div class="topbar">
+      <div class="location-pill">
+        📍 <span>Delhi NCR · Winter 2026 Chapter</span>
+      </div>
+      <div class="topbar-actions">
+        <div class="counter-chip">
+          <span class="sym">🪙</span>
+          <span>300 / 300 Cap</span>
+        </div>
+        <div class="secret-gate-badge">
+          🔒 Secret Gate
+        </div>
+      </div>
+    </div>
+
+    <!-- ==============================================
+         VIEW 1: CODES HUB (SIDE-BY-SIDE MOBILE VIEW)
+         ============================================== -->
+    <section id="view-codes" class="view-panel active">
+      <div class="hub-intro-card">
+        <span class="hub-eyebrow">TWO CODES. ONE DELHI WINTER.</span>
+        <h2 class="hub-title cinematic-font">Two codes. <em>Two different worlds.</em></h2>
+        <p class="hub-desc">Some will crash Delhi's wildest staged wedding with live baraat and zero relatives. Others will hunt clues through a clandestine mystery night. Both are in 1 view.</p>
+        <span class="hand-written">Real people. Real moments.</span>
+      </div>
+
+      <!-- SIDE-BY-SIDE 2 CODES (DIRECT LINKS TO NEW FILES) -->
+      <div class="codes-grid">
+        <!-- Code 01 Box -> elitecrashers.html -->
+        <a href="elitecrashers.html" class="code-preview-box">
+          <div class="poster-aspect">
+            <img src="ec.img5.png" alt="Code 1: Elitecrashers" onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80'">
+          </div>
+          <div class="code-box-meta">
+            <span class="code-box-title cinematic-font">Code 1: Elitecrashers</span>
+            <span style="color:var(--accent-gold); font-weight:800;">→</span>
+          </div>
+          <span class="code-box-sub">Fake Shaadi • Live Baraat</span>
+        </a>
+
+        <!-- Code 02 Box -> festihunt.html -->
+        <a href="festihunt.html" class="code-preview-box">
+          <div class="poster-aspect">
+            <img src="ec.img6.png" alt="Code 2: Winter Festihunt" onerror="this.src='https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=600&q=80'">
+          </div>
+          <div class="code-box-meta">
+            <span class="code-box-title cinematic-font">Code 2: Winter Festihunt</span>
+            <span style="color:var(--accent-gold); font-weight:800;">→</span>
+          </div>
+          <span class="code-box-sub">Mystery Hunt • Bonfire Night</span>
+        </a>
+      </div>
+
+      <!-- TRUST & VETTING PROTOCOLS -->
+      <div class="protocols-grid">
+        <div class="protocol-card">
+          <div class="protocol-num">PROTOCOL 01</div>
+          <h4>Strict Gender Balance</h4>
+          <p>Double-blind curation process ensuring 50:50 parity and a comfortable, organic social environment.</p>
+        </div>
+        <div class="protocol-card">
+          <div class="protocol-num">PROTOCOL 02</div>
+          <h4>Verified Entry Passes</h4>
+          <p>Zero unvetted walk-ins. Individual QR digital invites with mandatory on-ground security checks.</p>
+        </div>
+        <div class="protocol-card">
+          <div class="protocol-num">PROTOCOL 03</div>
+          <h4>Zero Harassment Charter</h4>
+          <p>Instant blacklist for any misconduct. Safe transit drop points & dedicated on-ground hosts.</p>
+        </div>
+      </div>
+
+      <!-- THE 300 PROMISE SHIELD -->
+      <div class="trust-shield-card">
+        <h3 class="cinematic-font">🛡️ The 300 Promise &amp; Transparent Condition</h3>
+        <p>This event comes alive strictly if we reach a threshold of 300 confirmed attendees. If the curated minimum of 300 is not unlocked, 100% of everyone's advance contribution is refunded within 48 hours to the original payment source. No processing deductions, zero awkward questions.</p>
+      </div>
+
+      <!-- INTERACTIVE FAQ ACCORDION -->
+      <div class="faq-section">
+        <div class="faq-header">
+          <span class="hub-eyebrow">CLEAR ANSWERS</span>
+          <h3 class="cinematic-font">Frequently Asked Questions</h3>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Where are the exact venues hosted in Delhi?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            To preserve privacy and prevent gatecrashers, verified banquet and farmhouse coordinates (in South Delhi / Ridge areas) are dropped strictly 12 hours prior to the event directly via SMS to vetted passholders.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>Can I register as a solo crasher or with friends?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Over 65% of attendees register solo. Our formats are purposefully designed without awkward icebreakers—you are instantly integrated into festive squads or clue-solving syndicates.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>What is the dress code?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            For Code 01 (Elitecrashers): Maximalist Shaadi Glam / Kurta-Pajama / Velvet Bandhgalas / Sneakers welcome. For Code 02 (Winter Festihunt): Trenchcoats, winter layers, boots, and warm night attire.
+          </div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            <span>How does the advance shagun refund work?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Your advance shagun acts as your seat reservation token. If the 300-capacity mark is not met by the deadline, automated reversals trigger within 2 working days.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         VIEW 2: COMMUNITY (3 EXCLUSIVE OUTPOSTS)
+         ============================================== -->
+    <section id="view-community" class="view-panel">
+      <div class="comm-hub-header">
+        <span class="hub-eyebrow">THE INNER CIRCLE</span>
+        <h2 class="cinematic-font">Community Outposts</h2>
+        <p>Unfiltered Delhi threads, behind-the-scenes leaks, and clandestine dispatches across our three official channels.</p>
+      </div>
+
+      <div class="social-outposts-grid">
+        <!-- Reddit HQ -->
+        <a href="https://www.reddit.com/user/Rihayi/" target="_blank" rel="noopener" class="social-card">
+          <span class="social-badge">REDDIT DISPATCH</span>
+          <h4 class="cinematic-font">u/Rihayi</h4>
+          <p>Read open confessions, city threads, AMA sessions, and unfiltered Delhi chatter from past gatherings.</p>
+          <div class="social-action">
+            <span>Join Discussion</span> →
+          </div>
+        </a>
+
+        <!-- Instagram POV 1: Crashers -->
+        <a href="https://www.instagram.com/the_crashers_pov?rpxt=MXF2OHZyM2ppNjVpdg%3D%3D" target="_blank" rel="noopener" class="social-card">
+          <span class="social-badge">CRASH ARCHIVES</span>
+          <h4 class="cinematic-font">@the_crashers_pov</h4>
+          <p>Raw handheld POV clips, staged wedding rehearsal leaks, and unscripted baraat madness.</p>
+          <div class="social-action">
+            <span>Watch POV Reels</span> →
+          </div>
+        </a>
+
+        <!-- Instagram POV 2: Winter Club -->
+        <a href="https://www.instagram.com/winterclub.social" target="_blank" rel="noopener" class="social-card">
+          <span class="social-badge">WINTER LOUNGE</span>
+          <h4 class="cinematic-font">@winterclub.social</h4>
+          <p>Secret rendezvous updates, Festihunt clue drops, aesthetic moodboards, and winter meetups.</p>
+          <div class="social-action">
+            <span>Visit Winter Club</span> →
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Mobile Bottom Bar -->
+<nav class="mobile-bottom-bar">
+  <button class="mobile-nav-btn active" id="m-nav-codes" onclick="switchTab('codes')">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+    Codes
+  </button>
+  <!-- Mobile link to elitecrashers.html -->
+  <a href="elitecrashers.html" class="mobile-nav-btn" id="m-nav-code01">
+    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
+    Code 01
+  </a>
+  <!-- Mobile link to festihunt.html -->
+  <a href="festihunt.html" class="mobile-nav-btn" id="m-nav-code02">
+    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+    Code 02
+  </a>
+  <button class="mobile-nav-btn" id="m-nav-community" onclick="switchTab('community')">
+    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+    Community
+  </button>
+</nav>
+
+<!-- Scripts for View Switching and Accordion -->
+<script>
+function switchTab(tabId) {
+  document.querySelectorAll('.view-panel').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('view-' + tabId);
+  if (target) target.classList.add('active');
+
+  document.querySelectorAll('.sidebar .nav-link').forEach(l => l.classList.remove('active'));
+  const desktopActive = document.getElementById('nav-' + tabId);
+  if (desktopActive) desktopActive.classList.add('active');
+
+  document.querySelectorAll('.mobile-bottom-bar .mobile-nav-btn').forEach(b => b.classList.remove('active'));
+  const mobileActive = document.getElementById('m-nav-' + tabId);
+  if (mobileActive) mobileActive.classList.add('active');
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleFaq(el) {
+  el.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
