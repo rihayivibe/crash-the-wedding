@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Winter Club Delhi – Mystery Winter Fest 2026</title>
+<meta name="description" content="Delhi's secret winter fest: vibes, games, unexpected encounters, and a team-based mystery hunt. Entry from ₹299. Date and venue under wraps until 300 crashers are in.">
+<meta name="theme-color" content="#fcfaf6">
+
+<!-- Preload assets -->
+<link rel="preload" as="image" href="ec.img3.png" fetchpriority="high">
+<link rel="preload" as="audio" href="music.mp3.mp3">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Abril+Fatface&family=Poppins:wght@400;500;600;700;800&family=Rozha+One&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  /* Editorial Off-White Palette (Matching Image 4) */
+  --bg-sand: #fcfaf6;
+  --bg-sand-warm: #f4efe6;
+  --bg-card-light: #ffffff;
+  --ink-primary: #0e261b;      /* Deep high-contrast evergreen ink */
+  --ink-secondary: #3b5447;    /* Slate-pine body copy */
+  --ink-muted: #6f8277;        /* Soft sage captions */
+  --line-light: rgba(14, 38, 27, 0.12);
+  --border-card: #e5ded3;
+
+  /* Original Signature Accents */
+  --pine-deep: #0d1e16;
+  --pine-card: #12281e;
+  --mint-accent: #178354;
+  --mint-bright: #76cba0;
+  --gold-warm: #cf8d1d;
+  --gold-soft: #fcf1dc;
+  --gold-dark: #8e5807;
+  --wine-dark: #3b050c;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { overflow-x: clip; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
+body {
+  background-color: var(--bg-sand);
+  color: var(--ink-primary);
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  background-image: 
+    radial-gradient(circle at 10% 0%, #f5efe3 0%, transparent 40%),
+    radial-gradient(circle at 95% 30%, #ecf3ee 0%, transparent 45%);
+  -webkit-font-smoothing: antialiased;
+}
+body.locked { overflow: hidden; height: 100vh; }
+
+a { color: inherit; text-decoration: none; }
+.an { font-family: 'Anton', 'Impact', sans-serif; font-weight: 400; text-transform: uppercase; line-height: .95; letter-spacing: .5px; }
+.dev { font-family: 'Rozha One', serif; font-size: 24px; color: var(--gold-warm); }
+.wrap { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+section { padding: 68px 0; }
+.eyebrow { font-weight: 700; letter-spacing: 4px; font-size: 12px; color: var(--gold-warm); text-transform: uppercase; margin-bottom: 10px; }
+h2 { font-size: clamp(34px, 5.5vw, 66px); margin-bottom: 14px; color: var(--ink-primary); }
+h2 em { font-style: normal; color: var(--mint-accent); }
+.lead { font-size: clamp(16px, 1.8vw, 19px); color: var(--ink-secondary); max-width: 680px; line-height: 1.6; }
+
+/* Top Urgency Ticker Banner */
+.top-notice-strip {
+  background: var(--wine-dark);
+  color: #ffecd1;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  padding: 8px 14px;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.live-beacon {
+  width: 8px;
+  height: 8px;
+  background: #ff4757;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.4);
+  animation: pulseBeacon 1.4s infinite;
+}
+@keyframes pulseBeacon { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+/* Buttons */
+.btn {
+  display: inline-block; background: var(--ink-primary); color: #ffffff; font-weight: 700; font-size: 15px;
+  padding: 13px 26px; border-radius: 12px; box-shadow: 0 5px 0 #05100a, 0 12px 20px rgba(14, 38, 27, 0.18);
+  transition: transform .15s, box-shadow .15s; border: 0; cursor: pointer; text-align: center;
+}
+.btn:hover { transform: translateY(2px); box-shadow: 0 3px 0 #05100a, 0 8px 14px rgba(14, 38, 27, 0.18); }
+.btn.gold { background: var(--gold-warm); color: #0d1e16; box-shadow: 0 5px 0 #9c660c, 0 12px 20px rgba(207, 141, 29, 0.25); }
+.btn.gold:hover { transform: translateY(2px); box-shadow: 0 3px 0 #9c660c; }
+.btn.ghost { background: transparent; color: var(--ink-primary); border: 2px solid var(--ink-primary); box-shadow: none; }
+.btn.ghost:hover { background: rgba(14, 38, 27, 0.05); }
+
+/* ========================================================
+   CHAI PHOTO GATE ENTRANCE (CINEMATIC DARK DOORS)
+   ======================================================== */
+#gate {
+  position: fixed; inset: 0; z-index: 2000; display: flex; overflow: hidden; background: #07120d;
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+}
+#gate.gone { display: none; }
+
+.door {
+  position: relative; flex: 1; height: 100%;
+  background: 
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.2) 0 2px, transparent 2px 40px),
+    linear-gradient(180deg, #133425, #08160f);
+  border: 2px solid #ffb627;
+  box-shadow: inset 0 0 0 6px #0d1e16, inset 0 0 0 9px rgba(255, 182, 39, 0.3);
+  transition: transform 1.15s cubic-bezier(0.7, 0, 0.2, 1);
+  will-change: transform;
+}
+.door.l { border-right-width: 1.5px; }
+.door.r { border-left-width: 1.5px; }
+.door:after {
+  content: ""; position: absolute; top: 76%; width: 22px; height: 22px; border-radius: 50%;
+  border: 3px solid #ffb627; background: #0d1e16; transform: translateY(-50%);
+}
+.door.l:after { right: 14px; }
+.door.r:after { left: 14px; }
+
+#gate.open .door.l { transform: translateX(-102%); }
+#gate.open .door.r { transform: translateX(102%); }
+
+.gate-center {
+  position: absolute; z-index: 4; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  text-align: center; width: min(92vw, 420px); transition: opacity 0.35s, transform 0.6s;
+}
+#gate.open .gate-center { opacity: 0; transform: translate(-50%, -60%) scale(0.9); }
+
+.chai-stage { position: relative; width: 220px; height: 220px; margin: 0 auto 16px; }
+.chai-circle-portal {
+  width: 100%; height: 100%; border-radius: 50%; border: 3.5px solid #ffb627;
+  box-shadow: 0 0 0 4px rgba(255, 182, 39, 0.25), 0 15px 35px rgba(0, 0, 0, 0.8), inset 0 0 25px rgba(0, 0, 0, 0.6);
+  overflow: hidden; position: relative; background: #11281c;
+}
+.chai-circle-portal img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; transform: scale(1.08); }
+
+.user-chai-toast {
+  position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%);
+  width: 66px; height: 66px; border-radius: 50%;
+  background: radial-gradient(circle at 45% 45%, #ffd29e 0%, #ba723a 45%, #56280c 100%);
+  border: 3px solid #ffeaab; box-shadow: 0 8px 24px rgba(0,0,0,0.85), 0 0 20px rgba(255, 182, 39, 0.8);
+  z-index: 6; animation: idleToast 1.8s ease-in-out infinite alternate;
+}
+.user-chai-toast:after { content: '☕'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 24px; }
+
+@keyframes idleToast {
+  0% { transform: translateX(-50%) translateY(0) scale(1); }
+  100% { transform: translateX(-50%) translateY(-7px) scale(1.05); }
+}
+
+#gate.cheers .user-chai-toast { animation: clinkChai 0.65s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards; }
+@keyframes clinkChai {
+  0% { transform: translateX(-50%) translateY(0) scale(1); }
+  60% { transform: translateX(-50%) translateY(-68px) scale(1.2); }
+  100% { transform: translateX(-50%) translateY(-58px) scale(1.12); }
+}
+
+.cheers-btn {
+  display: inline-block; background: #ffb627; color: #07190f; font-weight: 800;
+  border-radius: 999px; padding: 11px 26px; font-size: 14px;
+  box-shadow: 0 5px 0 #b97d0a, 0 10px 20px rgba(0,0,0,0.4); margin-top: 10px;
+}
+.gate-skip {
+  position: absolute; z-index: 5; bottom: 18px; left: 50%; transform: translateX(-50%);
+  background: none; border: 0; color: #b8d4c6; font: 600 12px Poppins, sans-serif;
+  text-decoration: underline; cursor: pointer;
+}
+#gate.open { pointer-events: none; }
+
+/* Header Navbar */
+header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(252, 250, 246, 0.94);
+  border-bottom: 1px solid var(--line-light);
+  backdrop-filter: blur(10px);
+}
+.nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.logo { font-family: 'Anton'; font-size: 24px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-primary); }
+.logo b { color: var(--mint-accent); font-weight: 400; }
+.nav ul { display: flex; gap: 24px; list-style: none; font-weight: 600; font-size: 14px; }
+.nav ul a { color: var(--ink-secondary); transition: color .15s; }
+.nav ul a:hover { color: var(--mint-accent); }
+.nav .btn { padding: 9px 20px; font-size: 13.5px; border-radius: 999px; }
+
+/* Hero section */
+.hero { padding: 50px 0 60px; }
+.hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; }
+.hero h1 { font-size: clamp(48px, 9vw, 110px); margin: 4px 0 16px; line-height: .92; color: var(--ink-primary); }
+.hero h1 span.t2 { color: var(--mint-accent); display: block; }
+.chips { display: flex; flex-wrap: wrap; gap: 9px; margin: 20px 0; }
+.chip { 
+  background: #ffffff; border: 1.5px solid var(--border-card); 
+  padding: 8px 16px; border-radius: 999px; font-weight: 600; font-size: 13.5px; 
+  color: var(--ink-primary); box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+.chip.hot { background: var(--gold-soft); color: var(--gold-dark); border-color: #f1ddb9; }
+.cta { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 24px; }
+.tbd { margin-top: 18px; color: var(--mint-accent); font-weight: 600; font-size: 14px; }
+
+/* Hero Retro Poster Card (Matching Image 4 Frame Style) */
+.poster-wrap { position: relative; justify-self: center; }
+.psy-card {
+  position: relative; max-width: 410px; width: 100%; 
+  background: var(--pine-deep); border-radius: 22px;
+  padding: 14px; border: 3.5px solid var(--gold-warm);
+  box-shadow: 
+    0 0 0 6px #1a382b, 
+    0 0 0 10px rgba(207, 141, 29, 0.35), 
+    0 24px 50px rgba(14, 38, 27, 0.28); 
+  overflow: hidden;
+  transform: rotate(1.2deg);
+}
+.psy-inner {
+  border: 1.5px dashed rgba(255, 182, 39, 0.6); border-radius: 14px; padding: 24px 18px;
+  text-align: center; background: radial-gradient(circle at 50% 40%, #163e2d 0%, #0c1f17 90%);
+}
+.psy-top-badge { font-family: 'Anton', sans-serif; color: var(--gold-warm); font-size: 13px; letter-spacing: 4px; text-transform: uppercase; margin: 4px 0 8px; display: block; }
+.psy-headline-1 {
+  font-family: 'Anton', sans-serif; font-size: clamp(34px, 5.5vw, 48px); line-height: 0.92;
+  color: #ffca7a; text-transform: uppercase; letter-spacing: 1px;
+  text-shadow: 2px 2px 0 #07150f; margin-bottom: 2px;
+}
+.psy-headline-2 {
+  font-family: 'Abril Fatface', serif; font-size: clamp(22px, 3.8vw, 30px); color: #f4efe6;
+  text-transform: uppercase; line-height: 1.1; letter-spacing: 0.5px;
+}
+.psy-main-box {
+  background: linear-gradient(180deg, #1a4a35 0%, #0d2a1d 100%); border: 1.5px solid var(--gold-warm);
+  border-radius: 12px; padding: 14px 10px; margin: 12px 0; transform: rotate(-1deg);
+  box-shadow: 0 6px 0 #06110c;
+}
+.psy-tagline {
+  font-family: 'Anton', sans-serif; font-size: clamp(19px, 3.2vw, 25px); line-height: 1.15;
+  color: #ffffff; text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+/* Ticker Marquee */
+.ticker {
+  background: var(--gold-warm); color: #0d1e16; overflow: hidden; white-space: nowrap;
+  padding: 12px 0; transform: rotate(-0.8deg); margin: 10px -10px;
+}
+.ticker div {
+  display: inline-block; animation: marquee 28s linear infinite; font-family: 'Anton';
+  font-size: 24px; text-transform: uppercase; letter-spacing: 1px;
+}
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* Cards & Grid in Off-White Canvas */
+.grid { display: grid; gap: 20px; margin-top: 32px; }
+.g3 { grid-template-columns: repeat(3, 1fr); }
+.g2 { grid-template-columns: repeat(2, 1fr); }
+.card { 
+  background: #ffffff; border: 1.5px solid var(--border-card); 
+  border-radius: 20px; padding: 26px; box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+}
+.card h3 { color: var(--ink-primary); }
+.card p { color: var(--ink-secondary); }
+
+.card.featured-card { 
+  background: var(--pine-deep); color: #e8f5ee; border-color: var(--pine-deep);
+}
+.card.featured-card h3 { color: #ffffff; }
+.card.featured-card p { color: #b8d4c6; }
+
+.act { position: relative; padding-top: 30px; }
+.act .n { font-family: 'Anton'; font-size: 54px; color: var(--gold-warm); line-height: 1; position: absolute; top: -6px; right: 18px; opacity: .8; }
+.act .tm { display: inline-block; background: var(--gold-warm); color: #0d1e16; font-weight: 700; font-size: 11.5px; padding: 3px 10px; border-radius: 999px; margin-bottom: 6px; }
+
+/* Split section */
+.split { display: grid; grid-template-columns: .85fr 1.15fr; gap: 42px; align-items: center; }
+.split img { width: 100%; height: auto; border-radius: 20px; border: 3px solid var(--ink-primary); display: block; object-fit: cover; box-shadow: 0 18px 36px rgba(0,0,0,0.08); }
+.big-title { font-family: 'Anton'; font-size: clamp(30px, 4.2vw, 50px); text-transform: uppercase; line-height: 1; color: var(--mint-accent); margin: 10px 0; }
+
+/* Tickets Section */
+.tk { text-align: center; position: relative; }
+.tk .pr { font-family: 'Anton'; font-size: 56px; color: var(--ink-primary); line-height: 1; margin: 6px 0; }
+.tk .lbl { font-weight: 700; letter-spacing: 2px; font-size: 11px; color: var(--gold-warm); text-transform: uppercase; }
+.tk .sub { color: var(--ink-muted); font-size: 14px; margin-bottom: 14px; }
+.tk.best { 
+  background: var(--pine-deep); color: #ffffff; border-color: var(--gold-warm);
+  box-shadow: 0 16px 36px rgba(13, 30, 22, 0.22); transform: translateY(-4px);
+}
+.tk.best .pr { color: #ffffff; }
+.tk.best .sub { color: #b8d4c6; }
+.tk.best .lbl { color: var(--gold-warm); }
+.tk.best .btn { background: var(--gold-warm); color: #0d1e16; box-shadow: 0 5px 0 #9c660c; }
+
+/* 300 Promise Card */
+.prom {
+  background: var(--bg-sand-warm); color: var(--ink-primary); border: 2px solid var(--border-card);
+  border-radius: 26px; padding: clamp(24px, 4.5vw, 50px);
+  display: grid; grid-template-columns: auto 1fr; gap: 30px; align-items: center;
+}
+.prom .big300 { font-family: 'Anton'; font-size: clamp(80px, 15vw, 160px); line-height: .85; color: var(--mint-accent); }
+.prom p { font-size: 16px; font-weight: 500; margin-top: 8px; color: var(--ink-secondary); }
+
+/* FAQs */
+details { 
+  background: #ffffff; border: 1.5px solid var(--border-card); 
+  border-radius: 16px; padding: 16px 22px; margin-top: 12px;
+}
+summary { font-weight: 600; cursor: pointer; font-size: 17px; color: var(--ink-primary); }
+details p { color: var(--ink-secondary); margin-top: 8px; font-size: 14.5px; }
+
+.soc { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 26px; }
+.soc a {
+  flex: 1; min-width: 250px; background: #ffffff; border: 1.5px solid var(--border-card); border-radius: 18px;
+  padding: 20px 24px; display: flex; align-items: center; gap: 16px; text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: transform .2s, border-color .2s;
+}
+.soc a:hover { transform: translateY(-3px); border-color: var(--mint-accent); }
+.soc .ig {
+  width: 48px; height: 48px; border-radius: 14px; background: linear-gradient(135deg, #cf8d1d, #ff4d8d 60%, #8a3ffc);
+  display: flex; align-items: center; justify-content: center; font-family: 'Anton'; font-size: 20px; color: #fff;
+}
+.soc b { color: var(--ink-primary); font-size: 17px; }
+
+.final { text-align: center; background: var(--bg-sand-warm); border-top: 1px solid var(--line-light); border-bottom: 1px solid var(--line-light); padding: 68px 0; }
+footer { padding: 34px 0 100px; text-align: center; color: var(--ink-muted); font-size: 14px; }
+
+/* Social Proof Floating Toast (Image 4 Style) */
+.social-proof-toast {
+  position: fixed;
+  left: 20px;
+  bottom: 24px;
+  z-index: 100;
+  background: #ffffff;
+  border: 1.5px solid var(--border-card);
+  border-radius: 14px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+  font-size: 13.5px;
+  color: var(--ink-secondary);
+  animation: floatToast 6s ease-in-out infinite;
+}
+.social-proof-toast b { color: var(--wine-dark); }
+@keyframes floatToast { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+
+/* Audio Button */
+#audio-toggle-btn {
+  position: fixed; z-index: 999; right: 20px; bottom: 22px; width: 46px; height: 46px;
+  border-radius: 50%; border: 2.5px solid var(--gold-warm); background: var(--wine-dark);
+  box-shadow: 0 0 0 2.5px rgba(207, 141, 29, 0.25), 0 8px 18px rgba(0, 0, 0, 0.4);
+  display: flex; align-items: center; justify-content: center; cursor: pointer; outline: none;
+  transition: transform 0.15s ease;
+}
+#audio-toggle-btn:active { transform: scale(0.9); }
+#audio-toggle-btn svg { width: 20px; height: 20px; fill: #fff; }
+
+/* Sticky Mobile Bar */
+.mob {
+  display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  background: rgba(252, 250, 246, 0.98); border-top: 1px solid var(--line-light);
+  padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px)); gap: 8px;
+}
+.mob a { flex: 1; text-align: center; padding: 12px 8px; border-radius: 10px; font-weight: 700; font-size: 14.5px; }
+.mob .r { background: var(--ink-primary); color: #ffffff; }
+.mob .e { border: 1.5px solid var(--ink-primary); color: var(--ink-primary); }
+
+@media(max-width: 900px) {
+  .hero .wrap, .split, .prom { grid-template-columns: 1fr; }
+  .g3 { grid-template-columns: 1fr 1fr; }
+  .nav ul { display: none; }
+  .poster-wrap { order: -1; }
+  .social-proof-toast { display: none; }
+}
+@media(max-width: 600px) {
+  section { padding: 42px 0; }
+  .hero { padding: 26px 0 36px; }
+  .hero h1 { font-size: clamp(40px, 13vw, 62px); margin: 4px 0 12px; }
+  .lead { font-size: 15px; }
+  .g2, .g3 { grid-template-columns: 1fr; }
+  .prom { padding: 22px 18px; gap: 10px; }
+  .prom .big300 { font-size: 78px; }
+  .mob { display: flex; }
+  #audio-toggle-btn {
+    bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+    right: 14px; width: 40px; height: 40px;
+  }
+}
+</style>
+</head>
+<body class="locked">
+
+<!-- Audio Element -->
+<audio id="bg-audio" preload="auto" loop playsinline>
+  <source src="music.mp3.mp3" type="audio/mpeg">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Live Urgency Notification Top Strip -->
+<div class="top-notice-strip">
+  <span class="live-beacon"></span>
+  <span>🔥 HIGH DEMAND: Early Bird Passes are 74% booked across Delhi NCR</span>
+</div>
+
+<!-- CINEMATIC CHAI GATE ENTRANCE -->
+<div id="gate" role="dialog" aria-label="Winter Gate: Tap to Cheers and Enter">
+  <div class="door l"></div>
+  <div class="door r"></div>
+
+  <div class="gate-center">
+    <div class="dev" style="font-size:22px;">शीतकालीन उत्सव</div>
+    <h2 class="an" style="font-size:clamp(28px, 7vw, 46px); margin: 4px 0 12px; color: #fff;">THE WINTER <em style="color:#76cba0">CLUB</em></h2>
+
+    <!-- Photo Circular Frame -->
+    <div class="chai-stage" aria-hidden="true">
+      <div class="chai-circle-portal">
+        <img src="ec.img3.png" alt="Friends Chai Kulhad Cheers">
+      </div>
+      <div class="user-chai-toast" title="Your Kulhad Cheers"></div>
+    </div>
+
+    <span class="cheers-btn">☕ Cheers! Tap to enter</span>
+    <small style="display:block;margin-top:10px;color:#b8d4c6;font-size:12px;">🔊 Music plays when the fest unfolds</small>
+  </div>
+
+  <button class="gate-skip" type="button" id="gate-skip">Enter silently without music</button>
+</div>
+
+<!-- AUDIO BUTTON -->
+<button id="audio-toggle-btn" type="button" aria-label="Mute or Unmute audio" title="Sound Muted - Tap to Play">
+  <svg id="audio-icon" viewBox="0 0 24 24">
+    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+  </svg>
+</button>
+
+<!-- Live Social Proof Floating Toast -->
+<div class="social-proof-toast" aria-live="polite">
+  <span>🎟️</span>
+  <span><b>Kabir M. (Hauz Khas)</b> registered for Mystery Hunt!</span>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">THE WINTER <b>CLUB</b></a>
+    <nav>
+      <ul>
+        <li><a href="#experiences">Experiences</a></li>
+        <li><a href="#hunt">Mystery Hunt</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#promise">The 300 Target</a></li>
+        <li><a href="#faq">FAQs</a></li>
+      </ul>
+    </nav>
+    <a class="btn" href="https://docs.google.com/forms/d/1soCJJ6o_t4ZEopKXkwk9SIXdCLQMktyVuqiGak_Y38Q/edit" target="_blank" rel="noopener">Register Now</a>
+  </div>
+</header>
+
+<main>
+  <!-- Hero Section (Off-White Background with Crisp Dark Green Typography) -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <div class="dev">शीतकालीन उत्सव</div>
+        <h1 class="an"><span class="t1">THE WINTER</span><span class="t2">CLUB</span></h1>
+        <p class="lead">Delhi, ready for something different this winter? Welcome to The Winter Club — vibes, games, fun activities, unexpected encounters and a mystery waiting to unfold. <b style="color:var(--ink-primary)">Some plans are better when you don't know everything.</b></p>
+        
+        <div class="chips">
+          <span class="chip hot">This Winter</span>
+          <span class="chip">Delhi NCR</span>
+          <span class="chip">Date &amp; Venue Under Wraps</span>
+          <span class="chip">₹299 Winter Entry</span>
+          <span class="chip">₹599 Mystery Hunt</span>
+        </div>
+
+        <div class="cta">
+          <a class="btn gold" href="https://docs.google.com/forms/d/1soCJJ6o_t4ZEopKXkwk9SIXdCLQMktyVuqiGak_Y38Q/edit" target="_blank" rel="noopener">Register Interest Now</a>
+          <a class="btn ghost" href="#experiences">Choose Experience</a>
+        </div>
+        <div class="tbd">📅 Date &amp; 📍 secret banquet revealed once 300 registrations are in.</div>
+      </div>
+
+      <!-- Psychedelic Retro Poster Card Frame -->
+      <div class="poster-wrap">
+        <div class="psy-card">
+          <div class="psy-inner">
+            <span class="psy-top-badge">DELHI EDITION · 2026</span>
+            <div class="psy-headline-1">PURE MYSTERY</div>
+            <div class="psy-headline-2">WINTER ODYSSEY</div>
+
+            <div class="psy-main-box">
+              <div class="psy-tagline">Dilli ki Thand or surprise Hunt.. Wahhh!!</div>
+            </div>
+
+            <div style="font-family:'Rozha One',serif; font-size:15px; color:var(--gold-warm);">Winter fest with surprise Hunt.</div>
+            <div style="font-size:11px; color:#a2cfba; letter-spacing:1.8px; text-transform:uppercase; margin-top:4px;">Min 300 dilwale</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee Ticker -->
+  <div class="ticker" aria-hidden="true">
+    <div>Secret Delhi Fest ✦ 5-Person Clue Hunt ✦ Carnival Games ✦ Bonfire Vibes ✦ Unlock The Mystery Box ✦ #TheWinterClubDelhi ✦ </div>
+  </div>
+
+  <!-- Experiences / Tickets -->
+  <section id="experiences" style="background:var(--bg-sand-warm)">
+    <div class="wrap" style="text-align:center">
+      <div class="eyebrow">Choose your experience</div>
+      <h2 class="an">Pick your <em>pass</em></h2>
+      <p class="lead" style="margin:0 auto">Come for the vibes, or take on the detective challenge.</p>
+      
+      <div class="grid g2" style="max-width:840px;margin:32px auto 0;text-align:left">
+        <div class="card tk">
+          <div class="lbl">The Social One</div>
+          <div class="pr">₹299</div>
+          <div class="sub">per person · Winter Entry</div>
+          <p style="font-size:14.5px;margin-bottom:18px;">Your entry to the fest. Enjoy the vibes, carnival games, fun activities and surprises waiting for you.</p>
+          <a class="btn" style="width:100%" href="https://docs.google.com/forms/d/1soCJJ6o_t4ZEopKXkwk9SIXdCLQMktyVuqiGak_Y38Q/edit" target="_blank" rel="noopener">Register for ₹299</a>
+        </div>
+
+        <div class="card tk best">
+          <div class="lbl">For the curious ones · featured</div>
+          <div class="pr">₹599</div>
+          <div class="sub">per person · The Mystery Hunt</div>
+          <p style="font-size:14.5px;margin-bottom:18px;">Everything in ₹299 entry, <b>PLUS access to the team-based Mystery Hunt</b>. Team up with 5 people, crack clues, and race to unlock the box.</p>
+          <a class="btn" style="width:100%" href="https://docs.google.com/forms/d/1soCJJ6o_t4ZEopKXkwk9SIXdCLQMktyVuqiGak_Y38Q/edit" target="_blank" rel="noopener">Join the Hunt for ₹599</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mystery Hunt Feature Split -->
+  <section id="hunt">
+    <div class="wrap split">
+      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Delhi Winter Gathering">
+      <div>
+        <div class="eyebrow">Team-based Detective Mission</div>
+        <h2 class="an">Crack the <em>mystery</em></h2>
+        <div class="big-title">One Box. One Key. 2 Hours.</div>
+        <p class="lead">Five people per team. A locked mystery box. A trail of cryptic riddles hidden across the venue. Think carefully, notice what others miss, and be the first squad to open the box to win the grand mystery gift.</p>
+        <div class="cta">
+          <a class="btn gold" href="https://docs.google.com/forms/d/1soCJJ6o_t4ZEopKXkwk9SIXdCLQMktyVuqiGak_Y38Q/edit" target="_blank" rel="noopener">Assemble Your Squad</a>
+          <button class="btn ghost" onclick="shareWhatsApp()">📲 WhatsApp Squad Invite</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works (6 Steps) -->
+  <section id="how-it-works" style="background:var(--bg-sand-warm)">
+    <div class="wrap">
+      <div class="eyebrow">The journey, step by step</div>
+      <h2 class="an">How it <em>works</em></h2>
+      <div class="grid g3">
+        <div class="card act"><div class="n">01</div><span class="tm">Step 1</span><h3 style="font-size:19px;">Register Interest</h3><p style="font-size:14px;">Fill the official form with your details and preferred pass.</p></div>
+        <div class="card act"><div class="n">02</div><span class="tm">Step 2</span><h3 style="font-size:19px;">Target 300</h3><p style="font-size:14px;">We work towards reaching our minimum goal of 300 community sign-ups.</p></div>
+        <div class="card act"><div class="n">03</div><span class="tm">Step 3</span><h3 style="font-size:19px;">Payment Link</h3><p style="font-size:14px;">Once confirmed, complete payment via official instructions.</p></div>
+        <div class="card act"><div class="n">04</div><span class="tm">Step 4</span><h3 style="font-size:19px;">Verification</h3><p style="font-size:14px;">Our team verifies your payment and confirms your guest entry.</p></div>
+        <div class="card act"><div class="n">05</div><span class="tm">Step 5</span><h3 style="font-size:19px;">The Reveal</h3><p style="font-size:14px;">Receive your confirmed ticket with secret date and venue coordinates.</p></div>
+        <div class="card act featured-card"><div class="n" style="color:var(--gold-warm)">06</div><span class="tm" style="background:var(--gold-warm);color:#0d1e16;">Step 6</span><h3 style="font-size:19px;">Show Up &amp; Vibe</h3><p style="font-size:14px;">Dress up, enter the venue, and let the winter mystery unfold.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The 300 Promise -->
+  <section id="promise">
+    <div class="wrap">
+      <div class="prom">
+        <div class="big300">300</div>
+        <div>
+          <div class="eyebrow" style="color:var(--mint-accent)">Our transparent condition</div>
+          <h2 class="an">The 300 <em>promise</em></h2>
+          <p><b>The Winter Club happens only when we reach our minimum target of 300 registrations.</b></p>
+          <p>Submitting the form simply registers your interest—no advance payment is taken right now. If the threshold isn't met, the event is postponed or cancelled with zero risk to you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section id="faq" style="background:var(--bg-sand-warm)">
+    <div class="wrap">
+      <div class="eyebrow">Good to know</div>
+      <h2 class="an">Quick <em>FAQs</em></h2>
+      <details open>
+        <summary>Where and when is The Winter Club happening?</summary>
+        <p>The event is planned for Delhi NCR this winter. The exact date and venue stay under wraps until the minimum 300 registrations are confirmed.</p>
+      </details>
+      <details>
+        <summary>Does submitting the form confirm my pass?</summary>
+        <p>No. Submitting registers your interest. You do not pay now. Once confirmed, you will receive payment instructions.</p>
+      </details>
+      <details>
+        <summary>Can I join the Mystery Hunt alone?</summary>
+        <p>Yes! Squad size is 5. Solo guests will be paired into teams on-site.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Connect Section -->
+  <section id="connect">
+    <div class="wrap">
+      <div class="eyebrow">Stay in the loop</div>
+      <h2 class="an">Connect <em>with us</em></h2>
+      <div class="soc">
+        <a href="https://www.instagram.com/winterclub.social/" target="_blank" rel="noopener">
+          <div class="ig">IG</div>
+          <div>
+            <b>@winterclub.social</b>
+            <span style="display:block;font-size:13.5px;color:var(--ink-muted);">The Winter Club Official Instagram</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    The Winter Club · Code 02 · Delhi NCR · Winter 2026 · Presented by Rihayi × Elitecrashers<br>
+    Questions? Follow <a href="https://www.instagram.com/winterclub.social/" target="_blank" style="text-decoration:underline;color:var(--mint-accent)">@winterclub.social</a>
+  </div>
+</footer>
+
+<!-- Sticky Mobile CTA -->
+<div class="mob">
+  <a class="r" href="https://docs.google.com/forms/d/1soCJJ6o_t4ZEopKXkwk9SIXdCLQMktyVuqiGak_Y38Q/edit" target="_blank" rel="noopener">Register Now</a>
+  <a class="e" href="javascript:void(0)" onclick="shareWhatsApp()">Share Squad</a>
+</div>
+
+<script>
+/* WhatsApp Share */
+function shareWhatsApp() {
+  const text = "Bro, check this out: Delhi is getting a secret winter fest & 5-person Mystery Hunt called The Winter Club (₹299 entry, ₹599 for the clue hunt). I'm registering—let's sign up together before the 300 cap fills up: " + window.location.href;
+  window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(text), "_blank");
+}
+
+/* Audio Controller & Gate Unlock */
+(function() {
+  const gate = document.getElementById('gate');
+  const gateSkip = document.getElementById('gate-skip');
+  const audio = document.getElementById('bg-audio');
+  const btn = document.getElementById('audio-toggle-btn');
+  const icon = document.getElementById('audio-icon');
+
+  const ICON_UNMUTED = `
+    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+  `;
+  const ICON_MUTED = `
+    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+  `;
+
+  audio.volume = 0.8;
+  let isGateUnlocked = false;
+
+  function updateButtonUI() {
+    if (!audio.paused && !audio.muted) {
+      icon.innerHTML = ICON_UNMUTED;
+      btn.setAttribute('title', 'Sound Playing - Tap to Mute');
+    } else {
+      icon.innerHTML = ICON_MUTED;
+      btn.setAttribute('title', 'Sound Muted - Tap to Play');
+    }
+  }
+
+  function toggleSound(e) {
+    if (e) e.stopPropagation();
+    if (audio.paused) {
+      audio.muted = false;
+      audio.play().then(updateButtonUI).catch(updateButtonUI);
+    } else if (audio.muted) {
+      audio.muted = false;
+      updateButtonUI();
+    } else {
+      audio.muted = true;
+      updateButtonUI();
+    }
+  }
+
+  btn.addEventListener('click', toggleSound);
+
+  function unlockFest(playMusic) {
+    if (isGateUnlocked) return;
+    isGateUnlocked = true;
+
+    gate.classList.add('cheers');
+
+    if (playMusic) {
+      audio.muted = false;
+      audio.play().then(updateButtonUI).catch(updateButtonUI);
+    } else {
+      audio.muted = true;
+      audio.pause();
+      updateButtonUI();
+    }
+
+    setTimeout(() => {
+      gate.classList.add('open');
+      document.body.classList.remove('locked');
+      setTimeout(() => {
+        gate.classList.add('gone');
+      }, 1150);
+    }, 600);
+  }
+
+  gate.addEventListener('click', (e) => {
+    if (e.target.id === 'gate-skip') {
+      unlockFest(false);
+    } else {
+      unlockFest(true);
+    }
+  });
+})();
+</script>
+</body>
+</html>\

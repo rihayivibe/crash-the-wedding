@@ -1,0 +1,1743 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Crash the Wedding Delhi 2026 – No-Relatives Wedding Party</title>
+<meta name="description" content="Delhi NCR's wildest wedding-style party, December 2026: live dhol baraat, nagin dance, pure veg shaadi feast and games. No relatives. Passes from ₹2,999.">
+<meta name="theme-color" content="#3a0008">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Rozha+One&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-cream: #fffaf5;
+  --bg-card: #ffffff;
+  --bg-dark-wine: #3a0008;
+  --bg-dark-card: #52010d;
+  --marigold: #f5a623;
+  --marigold-gold: #e59312;
+  --shaadi-red: #8a0618;
+  --text-primary: #151515;
+  --text-secondary: #5a5550;
+  --text-muted: #8c857d;
+  --border-light: rgba(138, 6, 24, 0.12);
+  --border-strong: rgba(138, 6, 24, 0.25);
+  --poster-pink: #f28b97;
+  --soft-pink-card: #fde8ea;
+  --radius-xl: 28px;
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-pill: 9999px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  background-color: var(--bg-cream);
+}
+
+body {
+  background-color: var(--bg-cream);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font-size: 15.5px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body.gate-locked {
+  overflow: hidden !important;
+  height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+
+#confettiCanvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* =========================================================
+   CINEMATIC CURTAIN GATE INTRO
+========================================================= */
+#curtainGate {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  overflow: hidden;
+  background: #240005;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  perspective: 1200px;
+}
+
+#curtainGate.departed {
+  display: none !important;
+}
+
+.curtain-door {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(245, 166, 35, 0.14) 0 10%, transparent 11%),
+    radial-gradient(circle at 50% 50%, transparent 0 22%, rgba(245, 166, 35, 0.1) 23% 25%, transparent 26%),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0 2px, transparent 2px 38px),
+    linear-gradient(180deg, #780210 0%, #3a0008 100%);
+  border: 3px solid var(--marigold);
+  box-shadow: inset 0 0 0 6px #240005, inset 0 0 0 8px rgba(245, 166, 35, 0.45);
+  transition: transform 1.25s cubic-bezier(0.76, 0, 0.24, 1);
+  will-change: transform;
+}
+
+.curtain-door.door-left {
+  border-right-width: 2px;
+  transform-origin: left center;
+}
+.curtain-door.door-right {
+  border-left-width: 2px;
+  transform-origin: right center;
+}
+
+.curtain-door::after {
+  content: "";
+  position: absolute;
+  top: 72%;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 3.5px solid var(--marigold);
+  background: #240005;
+  transform: translateY(-50%);
+}
+.curtain-door.door-left::after { right: 18px; }
+.curtain-door.door-right::after { left: 18px; }
+
+#curtainGate.opened .curtain-door.door-left {
+  transform: translateX(-102%) rotateY(-8deg);
+}
+#curtainGate.opened .curtain-door.door-right {
+  transform: translateX(102%) rotateY(8deg);
+}
+
+.gate-toran {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  z-index: 1002;
+  background: radial-gradient(circle at 14px 0, var(--marigold) 12px, transparent 13px) repeat-x;
+  background-size: 28px 28px;
+  transition: opacity 0.4s ease;
+}
+#curtainGate.opened .gate-toran { opacity: 0; }
+
+.gate-center-card {
+  position: absolute;
+  z-index: 1003;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: min(88vw, 440px);
+  transition: opacity 0.5s ease, transform 0.6s ease;
+  will-change: transform, opacity;
+}
+
+#curtainGate.opened .gate-center-card {
+  opacity: 0;
+  transform: translate(-50%, -58%) scale(0.92);
+}
+
+.gate-shubh {
+  font-family: 'Rozha One', serif;
+  font-size: 24px;
+  color: var(--marigold);
+  margin-bottom: 2px;
+}
+
+.gate-heading {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(34px, 7vw, 56px);
+  color: #fff9f0;
+  text-transform: uppercase;
+  line-height: 1.02;
+  letter-spacing: 0.5px;
+  margin-bottom: 18px;
+  text-shadow: 2px 2px 0 #1b0004;
+}
+.gate-heading span {
+  color: var(--marigold);
+  display: block;
+}
+
+.knock-trigger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--marigold);
+  color: #2b1400;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  border-radius: var(--radius-pill);
+  padding: 13px 26px;
+  box-shadow: 0 6px 0 #ab6e0d, 0 14px 32px rgba(0,0,0,0.45);
+  animation: knockPulse 1.4s ease-in-out infinite;
+}
+@keyframes knockPulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.gate-center-card small {
+  display: block;
+  margin-top: 14px;
+  color: #f7d2d6;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.gate-silent-link {
+  position: absolute;
+  z-index: 1004;
+  bottom: calc(20px + env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  color: #e8b0b6;
+  font: 600 12.5px 'Plus Jakarta Sans', sans-serif;
+  text-decoration: underline;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: opacity 0.3s;
+}
+#curtainGate.opened .gate-silent-link { opacity: 0; }
+
+#curtainGate.knocking .gate-center-card {
+  animation: gateShake 0.14s linear 5;
+}
+@keyframes gateShake {
+  0%, 100% { transform: translate(-50%, -50%); }
+  25% { transform: translate(calc(-50% - 5px), -50%); }
+  75% { transform: translate(calc(-50% + 5px), -50%); }
+}
+
+/* =========================================================
+   HEADER & TOP MARIGOLD BORDER
+========================================================= */
+.marigold-toran {
+  height: 22px;
+  background: radial-gradient(circle at 12px 0, var(--marigold) 10px, transparent 11px) repeat-x;
+  background-size: 24px 22px;
+  width: 100%;
+}
+
+header.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 250, 245, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.nav-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-text {
+  font-family: 'Anton', sans-serif;
+  font-size: 23px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #111;
+}
+.logo-text span {
+  color: var(--marigold);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color 0.15s;
+}
+.nav-links a:hover {
+  color: var(--shaadi-red);
+}
+
+.register-btn-top {
+  background: #fde8ea;
+  color: var(--shaadi-red);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid rgba(138, 6, 24, 0.15);
+  transition: all 0.2s ease;
+}
+.register-btn-top:hover {
+  background: var(--shaadi-red);
+  color: #fff;
+}
+
+main.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 30px 24px 100px;
+}
+
+/* =========================================================
+   HERO SECTION
+========================================================= */
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 36px;
+  align-items: center;
+  padding: 36px 0 46px;
+}
+
+.devanagari-tag {
+  font-family: 'Rozha One', serif;
+  font-size: 28px;
+  color: var(--marigold-gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.hero-big-title {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(52px, 8.2vw, 102px);
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #111;
+  margin-bottom: 22px;
+}
+.hero-big-title .pink-line {
+  color: var(--poster-pink);
+  display: block;
+}
+
+.hero-lead-text {
+  font-size: clamp(16px, 1.4vw, 18px);
+  color: var(--text-secondary);
+  max-width: 540px;
+  line-height: 1.6;
+}
+
+.chips-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0 30px;
+}
+.event-chip {
+  background: #fff;
+  border: 1.5px solid var(--border-light);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+.event-chip.highlight {
+  background: var(--shaadi-red);
+  color: #fff;
+  border-color: var(--shaadi-red);
+}
+
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+.btn-primary-action {
+  background: var(--marigold);
+  color: #2b1400;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 13px 28px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 14px rgba(245, 166, 35, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.btn-primary-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 166, 35, 0.55);
+}
+.btn-ghost-action {
+  background: #fff;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-strong);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 22px;
+  border-radius: var(--radius-pill);
+  transition: background 0.15s;
+}
+.btn-ghost-action:hover {
+  background: #fdf2f4;
+}
+
+.poster-hero-frame {
+  background: #3a0008;
+  border-radius: 22px;
+  border: 4px solid #fff;
+  box-shadow: 0 20px 48px rgba(58, 0, 8, 0.22);
+  padding: 24px 20px;
+  text-align: center;
+  position: relative;
+  color: #fff;
+  transition: transform 0.15s ease-out;
+  transform-style: preserve-3d;
+}
+
+.poster-hero-frame .inner-dashed-box {
+  border: 2px dashed rgba(245, 166, 35, 0.6);
+  border-radius: 14px;
+  padding: 30px 18px 24px;
+  background: radial-gradient(circle at 50% 30%, #730617 0%, #290005 90%);
+}
+
+.poster-dialogue-badge {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(20px, 2.4vw, 27px);
+  line-height: 1.25;
+  color: #fff9f0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 16px 0;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1.5px solid var(--marigold);
+  border-radius: 12px;
+}
+
+.poster-footer-caption {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--marigold);
+}
+
+.ticker-band {
+  background: var(--marigold);
+  color: #2b1400;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 11px 0;
+  border-radius: var(--radius-md);
+  margin: 20px 0 54px;
+  font-family: 'Anton', sans-serif;
+  font-size: 19px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.ticker-content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: smoothMarquee 26s linear infinite;
+}
+@keyframes smoothMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* =========================================================
+   ACT 04 - BARAAT WITH LIVE DHOLS (ec.img2.png)[cite: 8]
+========================================================= */
+.baraat-act-section {
+  background: var(--bg-dark-wine);
+  border-radius: var(--radius-xl);
+  padding: 44px 38px;
+  color: #fff;
+  margin-bottom: 60px;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 40px;
+  align-items: center;
+  box-shadow: 0 20px 50px rgba(58, 0, 8, 0.35);
+}
+
+.baraat-img-frame {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 4px solid #fff;
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+  background: #250005;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+}
+
+.baraat-img-frame img {
+  width: 100%;
+  height: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+.baraat-text-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.baraat-act-tag {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--marigold);
+  margin-bottom: 8px;
+}
+
+.baraat-act-title {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(38px, 5.5vw, 68px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.baraat-act-subtitle {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(22px, 3vw, 36px);
+  color: var(--poster-pink);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.baraat-act-desc {
+  font-size: 16px;
+  line-height: 1.65;
+  color: #f7d2d6;
+  max-width: 580px;
+}
+
+/* =========================================================
+   KYA-KYA MILEGA: YOUR PASS INCLUDES[cite: 9]
+========================================================= */
+.pass-includes-section {
+  background: var(--bg-dark-wine);
+  border-radius: var(--radius-xl);
+  padding: 50px 38px;
+  color: #fff;
+  margin-bottom: 60px;
+  box-shadow: 0 20px 50px rgba(58, 0, 8, 0.35);
+}
+
+.pass-includes-eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--marigold);
+  margin-bottom: 6px;
+}
+
+.pass-includes-heading {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 0.98;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.pass-includes-sub {
+  font-size: 15.5px;
+  color: #f7d2d6;
+  margin-bottom: 34px;
+}
+
+.pass-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.feature-pill-card {
+  background: var(--bg-dark-card);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 22px 18px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.feature-pill-card:hover {
+  transform: translateY(-3px);
+}
+
+.feature-pill-card .f-icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.feature-pill-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.feature-pill-card p {
+  font-size: 13px;
+  color: #f7d2d6;
+  line-height: 1.5;
+}
+
+.feature-pill-card.surprise-highlight {
+  background: var(--soft-pink-card);
+  color: var(--shaadi-red);
+}
+.feature-pill-card.surprise-highlight h4 {
+  color: var(--shaadi-red);
+}
+.feature-pill-card.surprise-highlight p {
+  color: #630211;
+}
+
+/* =========================================================
+   ANIMATED 300 PARTICLES DOT MATRIX PROMISE CARD[cite: 10]
+========================================================= */
+.particles-300-promise-wrap {
+  background: var(--bg-dark-wine);
+  border-radius: var(--radius-xl);
+  padding: 44px 38px;
+  color: #fff;
+  margin-bottom: 60px;
+  box-shadow: 0 20px 50px rgba(58, 0, 8, 0.35);
+}
+
+.promise-inner-card {
+  background: var(--soft-pink-card);
+  color: var(--shaadi-red);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 36px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.dots-300-visual-box {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#dotsCanvas300 {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.promise-content-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.promise-condition-tag {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #70020f;
+  margin-bottom: 8px;
+}
+
+.promise-title {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(34px, 4.5vw, 54px);
+  color: #8a0618;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.promise-main-body {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #4a030d;
+  margin-bottom: 14px;
+}
+
+.promise-main-body b {
+  color: #70020f;
+}
+
+.shagun-callout-pill {
+  background: rgba(138, 6, 24, 0.08);
+  border: 1.5px dashed #8a0618;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 700;
+  color: #70020f;
+  margin-top: 6px;
+}
+
+/* SIDES SWITCHER */
+section.block-wrap {
+  margin-bottom: 60px;
+}
+.section-meta-head {
+  margin-bottom: 24px;
+}
+.section-eyebrow-tag {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--shaadi-red);
+  display: block;
+  margin-bottom: 4px;
+}
+.section-main-heading {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(32px, 4vw, 44px);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #111;
+  line-height: 1.05;
+}
+.section-sub-copy {
+  font-size: 15px;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-top: 6px;
+}
+
+.side-selector-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: #f7ede8;
+  padding: 8px;
+  border-radius: var(--radius-lg);
+  margin-bottom: 16px;
+}
+
+.tab-picker-btn {
+  background: transparent;
+  border: none;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+.tab-picker-btn b {
+  display: block;
+  font-size: 16px;
+  color: var(--text-primary);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.tab-picker-btn span {
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+.tab-picker-btn.active {
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+.tab-picker-btn.active b {
+  color: var(--shaadi-red);
+}
+
+.side-details-panel {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  display: none;
+}
+.side-details-panel.active {
+  display: block;
+}
+
+.roles-triplet {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+.single-role-card {
+  background: #fffaf8;
+  border: 1px solid rgba(138, 6, 24, 0.1);
+  border-radius: var(--radius-md);
+  padding: 18px;
+}
+.single-role-card i {
+  font-style: normal;
+  font-size: 26px;
+  display: block;
+  margin-bottom: 8px;
+}
+.single-role-card h4 {
+  font-size: 15px;
+  color: var(--shaadi-red);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.single-role-card p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* TICKETS */
+.tickets-grid-wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.ticket-pass-box {
+  background: #fff;
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 24px 18px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+  position: relative;
+}
+.ticket-pass-box:hover {
+  transform: translateY(-3px);
+}
+.ticket-pass-box.gold-best {
+  border: 2px solid var(--marigold);
+  background: #fffdf9;
+  box-shadow: 0 10px 28px rgba(245, 166, 35, 0.18);
+}
+
+.pass-tier-label {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--shaadi-red);
+  margin-bottom: 6px;
+}
+.pass-price-val {
+  font-family: 'Anton', sans-serif;
+  font-size: 42px;
+  color: #111;
+  line-height: 1;
+  margin: 6px 0;
+}
+.ticket-pass-box.gold-best .pass-price-val {
+  color: var(--shaadi-red);
+}
+.pass-sub-note {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+.pass-buy-link {
+  margin-top: auto;
+  background: var(--marigold);
+  color: #2b1400;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  transition: opacity 0.15s;
+}
+.pass-buy-link:hover { opacity: 0.9; }
+
+/* FAQ ACCORDION */
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+details {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  cursor: pointer;
+}
+summary {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-primary);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after {
+  content: "+";
+  font-size: 18px;
+  color: var(--shaadi-red);
+  font-weight: 700;
+}
+details[open] summary::after { content: "−"; }
+details p {
+  color: var(--text-secondary);
+  font-size: 13.5px;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   SINGLE INSTAGRAM CARD (@the_crashers_pov ONLY)
+========================================================= */
+.insta-single-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #3a0008;
+  border: 1.5px solid var(--marigold);
+  border-radius: var(--radius-lg);
+  padding: 18px 24px;
+  max-width: 440px;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(58, 0, 8, 0.25);
+  transition: transform 0.2s ease;
+}
+.insta-single-box:hover {
+  transform: translateY(-2px);
+}
+.insta-gradient-tile {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 17px;
+  flex-shrink: 0;
+}
+.insta-meta-wrap b {
+  display: block;
+  font-size: 16.5px;
+  color: #fff;
+}
+.insta-meta-wrap span {
+  font-size: 12.5px;
+  color: #f7d4b0;
+}
+
+/* FLOATING MUTE / UNMUTE BUTTON */
+.floating-audio-ctrl {
+  position: fixed;
+  bottom: 26px;
+  right: 24px;
+  z-index: 100;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #3a0008;
+  border: 2px solid var(--marigold);
+  box-shadow: 0 8px 24px rgba(58, 0, 8, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+.floating-audio-ctrl:hover {
+  transform: scale(1.08);
+}
+.floating-audio-ctrl svg {
+  width: 22px;
+  height: 22px;
+  fill: #fff;
+}
+.playing-ping-dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 12px;
+  height: 12px;
+  background: #2cb64f;
+  border-radius: 50%;
+  border: 2px solid #3a0008;
+  display: none;
+}
+.floating-audio-ctrl.active-play .playing-ping-dot {
+  display: block;
+}
+
+/* MOBILE BOTTOM BAR */
+.mobile-action-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 250, 245, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--border-light);
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  z-index: 60;
+  justify-content: space-around;
+  align-items: center;
+}
+.mobile-action-link {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+.mobile-action-link.primary-cta {
+  background: var(--marigold);
+  color: #2b1400;
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
+}
+
+@media (max-width: 960px) {
+  .hero-layout { grid-template-columns: 1fr; gap: 30px; }
+  .baraat-act-section { grid-template-columns: 1fr; gap: 24px; padding: 30px 22px; }
+  .pass-feature-grid { grid-template-columns: 1fr 1fr; }
+  .promise-inner-card { grid-template-columns: 1fr; gap: 24px; padding: 28px 20px; }
+  .tickets-grid-wrap { grid-template-columns: 1fr 1fr; }
+  .roles-triplet { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}
+
+@media (max-width: 600px) {
+  main.container { padding: 18px 16px 110px; }
+  .pass-feature-grid { grid-template-columns: 1fr; }
+  .tickets-grid-wrap { grid-template-columns: 1fr; }
+  .side-selector-tabs { grid-template-columns: 1fr; }
+  .mobile-action-bar { display: flex; }
+  .floating-audio-ctrl {
+    bottom: 74px;
+    right: 18px;
+    width: 48px;
+    height: 48px;
+  }
+}
+</style>
+</head>
+<body class="gate-locked">
+
+<canvas id="confettiCanvas"></canvas>
+
+<!-- =========================================================
+     CINEMATIC OPENING GATE OVERLAY[cite: 7]
+========================================================= -->
+<div id="curtainGate" role="dialog" aria-label="Wedding Gate: Tap to Enter">
+  <div class="gate-toran" aria-hidden="true"></div>
+  <div class="curtain-door door-left"></div>
+  <div class="curtain-door door-right"></div>
+  
+  <div class="gate-center-card">
+    <div class="gate-shubh">शुभ विवाह</div>
+    <h2 class="gate-heading">Shaadi Mein <span>Zaroor Aana</span></h2>
+    <div class="knock-trigger-btn">
+      🚪 Knock knock! Tap to open
+    </div>
+    <small>🔊 Music plays when the gate opens</small>
+  </div>
+
+  <button class="gate-silent-link" type="button" id="silentOpenBtn">Enter without music</button>
+</div>
+
+<!-- Marigold Floral Toran Garland across Top[cite: 1, 4] -->
+<div class="marigold-toran" aria-hidden="true"></div>
+
+<!-- Background Audio Loop with User's Files[cite: 1] -->
+<audio id="weddingBgmAudio" loop preload="auto">
+  <source src="baraat-dhol.mp3" type="audio/mpeg">
+  <source src="baraat-dhol.mp3.mp3" type="audio/mpeg">
+</audio>
+
+<!-- FLOATING MUTE / UNMUTE BUTTON[cite: 5] -->
+<button id="audioToggleBtn" class="floating-audio-ctrl" aria-label="Toggle background music" title="Mute / Unmute Music">
+  <span class="playing-ping-dot"></span>
+  <svg id="svgMutedState" viewBox="0 0 24 24">
+    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27l4.73 4.73H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+  </svg>
+  <svg id="svgPlayingState" style="display:none;" viewBox="0 0 24 24">
+    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+  </svg>
+</button>
+
+<!-- STICKY SITE HEADER[cite: 1] -->
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="#" class="logo-text">CRASH <span>THE</span> WEDDING</a>
+    
+    <ul class="nav-links">
+      <li><a href="#sides">Pick a Side</a></li>
+      <li><a href="#baraat-act">Baraat</a></li>
+      <li><a href="#pass-includes">Includes</a></li>
+      <li><a href="#promise300">The 300</a></li>
+      <li><a href="#tickets">Tickets</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeP4Cob_ebbn75_-JgjRkySUTtOxLyt70-odjgSwiytQNzfdg/viewform" target="_blank" rel="noopener" class="register-btn-top">
+      Register Now
+    </a>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- HERO SECTION[cite: 4] -->
+  <section class="hero-layout">
+    <div>
+      <div class="devanagari-tag">शुभ विवाह</div>
+      <h1 class="hero-big-title">
+        Crash <span class="pink-line">The</span> Wedding
+      </h1>
+      <p class="hero-lead-text">
+        Ever wanted to enjoy a big fat Delhi wedding without the nosy aunties, endless rituals, and awkward questions?[cite: 1] <b>This December, you can.</b>[cite: 1]
+      </p>
+
+      <div class="chips-cluster">
+        <span class="event-chip highlight">December 2026</span>
+        <span class="event-chip">Delhi NCR</span>
+        <span class="event-chip">Entry 4:30 PM</span>
+        <span class="event-chip">Pure Veg</span>
+        <span class="event-chip">No Alcohol</span>
+      </div>
+
+      <div class="hero-cta-row">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeP4Cob_ebbn75_-JgjRkySUTtOxLyt70-odjgSwiytQNzfdg/viewform" target="_blank" rel="noopener" class="btn-primary-action">
+          Register Now 🎟️
+        </a>
+        <a href="#sides" class="btn-ghost-action">
+          Pick Your Side →
+        </a>
+      </div>
+    </div>
+
+    <!-- 3D Interactive Dialogue Poster[cite: 4] -->
+    <div class="poster-hero-frame" id="tiltPoster">
+      <div class="inner-dashed-box">
+        <div class="devanagari-tag" style="color:var(--marigold);">शुभ विवाह</div>
+        <div style="font-family:'Anton'; font-size:20px; color:#fde8ea; letter-spacing:1.5px; text-transform:uppercase;">
+          SHAADI MEIN ZAROOR AANA
+        </div>
+        
+        <div class="poster-dialogue-badge">
+          "BABUMOSHAI TUM BHI CHALOGE MERE SATH FAKE SHAADI ME?"
+        </div>
+
+        <div class="poster-footer-caption">
+          ZERO RELATIVES · PURE VEG FEAST
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER STRIP[cite: 1] -->
+  <div class="ticker-band" aria-hidden="true">
+    <div class="ticker-content">
+      Zero relatives ✦ Zero rituals ✦ Live dhols ✦ Mandatory nagin dance ✦ Shaadi ka khaana ✦ #ShoshebaaziWaliShaadi ✦ Zero relatives ✦ Zero rituals ✦ Live dhols ✦ Mandatory nagin dance ✦ Shaadi ka khaana ✦[cite: 1] 
+    </div>
+  </div>
+
+  <!-- SIDES SECTION[cite: 1] -->
+  <section class="block-wrap" id="sides">
+    <div class="section-meta-head">
+      <span class="section-eyebrow-tag">Ladki Wale vs Ladke Wale</span>
+      <h2 class="section-main-heading">Pick Your Side</h2>
+      <p class="section-sub-copy">Bride's side or groom's side — pick your squad. Both sides get full access to the party and the veg feast.</p>
+    </div>
+
+    <div class="side-selector-tabs">
+      <button class="tab-picker-btn active" id="tabBrideBtn" onclick="toggleSide('bride')">
+        <b>👰 Bride’s Side</b>
+        <span>Hosts of the night</span>
+      </button>
+      <button class="tab-picker-btn" id="tabGroomBtn" onclick="toggleSide('groom')">
+        <b>🤵 Groom’s Side</b>
+        <span>The baraatis</span>
+      </button>
+    </div>
+
+    <!-- Bride Content[cite: 1] -->
+    <div class="side-details-panel active" id="bridePanel">
+      <h3 style="font-size:20px; color:var(--shaadi-red); margin-bottom:4px;">Aap Ho Mezbaan</h3>
+      <p style="font-size:14px; color:var(--text-secondary);">You’re the host. The wedding is yours, so welcome everyone like family (the fun kind).</p>
+      
+      <div class="roles-triplet">
+        <div class="single-role-card">
+          <i>🌹</i>
+          <h4>Welcome The Baraat</h4>
+          <p>Greet guests on the red carpet and set the vibe right from minute one.</p>
+        </div>
+        <div class="single-role-card">
+          <i>🎮</i>
+          <h4>Run The Games</h4>
+          <p>Wedding tasks and challenges with spontaneous prizes for participants.</p>
+        </div>
+        <div class="single-role-card">
+          <i>🎭</i>
+          <h4>Own The Drama</h4>
+          <p>The runaway bride comedy act unfolds right on your watch.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Groom Content[cite: 1] -->
+    <div class="side-details-panel" id="groomPanel">
+      <h3 style="font-size:20px; color:var(--shaadi-red); margin-bottom:4px;">Aap Ho Baraati</h3>
+      <p style="font-size:14px; color:var(--text-secondary);">You’re the baraat. Arrive loud, dance louder, and completely take over the dance floor.</p>
+      
+      <div class="roles-triplet">
+        <div class="single-role-card">
+          <i>🥁</i>
+          <h4>Live Dhol Baraat</h4>
+          <p>Brass, heavy dhols, and an entrance with maximum noise and swagger.</p>
+        </div>
+        <div class="single-role-card">
+          <i>🐍</i>
+          <h4>Nagin Dance</h4>
+          <p>Mandatory. No shy corners allowed once the track drops.</p>
+        </div>
+        <div class="single-role-card">
+          <i>🍽️</i>
+          <h4>Feast &amp; Finale</h4>
+          <p>Pure-veg shaadi feast, then non-stop music till your feet give up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ACT 04 - BARAAT WITH LIVE DHOLS (ec.img2.png)[cite: 8]
+  ========================================================= -->
+  <section class="baraat-act-section" id="baraat-act">
+    <div class="baraat-img-frame">
+      <img src="ec.img2.png" alt="Baraat band in red turbans under a pink and orange mandap at a Delhi wedding[cite: 1]" loading="lazy">
+    </div>
+    <div class="baraat-text-content">
+      <span class="baraat-act-tag">ACT 04[cite: 8]</span>
+      <h2 class="baraat-act-title">BARAAT WITH LIVE DHOLS[cite: 8]</h2>
+      <div class="baraat-act-subtitle">FULL JOSH. ZERO FILTER.[cite: 8]</div>
+      <p class="baraat-act-desc">
+        Brass, dhols and a crowd that refuses to stand still. Join the baraat, find your rhythm and yes, bring your best nagin moves 🐍. It’s mandatory.[cite: 8]
+      </p>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       KYA-KYA MILEGA: YOUR PASS INCLUDES[cite: 9]
+  ========================================================= -->
+  <section class="pass-includes-section" id="pass-includes">
+    <span class="pass-includes-eyebrow">KYA-KYA MILEGA[cite: 9]</span>
+    <h2 class="pass-includes-heading">YOUR PASS INCLUDES[cite: 9]</h2>
+    <p class="pass-includes-sub">One pass. Everything a real shaadi has, minus the relatives.[cite: 9]</p>
+
+    <div class="pass-feature-grid">
+      <div class="feature-pill-card">
+        <div class="f-icon">🍽️</div>
+        <h4>Full wedding-style food spread[cite: 9]</h4>
+        <p>Shaadi ka khaana, the way it should be. Pure veg.[cite: 9]</p>
+      </div>
+
+      <div class="feature-pill-card">
+        <div class="f-icon">🥁</div>
+        <h4>Baraat with live dhols[cite: 9]</h4>
+        <p>Full josh, and yes, a mandatory nagin dance 🐍[cite: 9]</p>
+      </div>
+
+      <div class="feature-pill-card">
+        <div class="f-icon">🎧</div>
+        <h4>Live DJ + dance floor[cite: 9]</h4>
+        <p>Non-stop, till your feet give up.[cite: 9]</p>
+      </div>
+
+      <div class="feature-pill-card">
+        <div class="f-icon">🎮</div>
+        <h4>Wedding games[cite: 9]</h4>
+        <p>Fun, loud and competitive.[cite: 9]</p>
+      </div>
+
+      <div class="feature-pill-card">
+        <div class="f-icon">🎤</div>
+        <h4>Live &amp; surprise performances[cite: 9]</h4>
+        <p>You might just be picked.[cite: 9]</p>
+      </div>
+
+      <div class="feature-pill-card">
+        <div class="f-icon">💍</div>
+        <h4>Wedding vibes[cite: 9]</h4>
+        <p>No relatives, no chaos. Just the best parts of a shaadi.[cite: 9]</p>
+      </div>
+
+      <div class="feature-pill-card">
+        <div class="f-icon">🎁</div>
+        <h4>Gifts for stars[cite: 9]</h4>
+        <p>Every stage performer and task winner gets a gift.[cite: 9]</p>
+      </div>
+
+      <div class="feature-pill-card surprise-highlight">
+        <div class="f-icon">🤫</div>
+        <h4>A secret surprise[cite: 9]</h4>
+        <p>It unfolds on the wedding day. We’re not telling.[cite: 9]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ANIMATED 300 PARTICLES DOT MATRIX PROMISE CARD[cite: 10]
+  ========================================================= -->
+  <section class="particles-300-promise-wrap" id="promise300">
+    <div class="promise-inner-card">
+      <div class="dots-300-visual-box">
+        <canvas id="dotsCanvas300"></canvas>
+      </div>
+
+      <div class="promise-content-box">
+        <span class="promise-condition-tag">OUR TRANSPARENT CONDITION[cite: 10]</span>
+        <h2 class="promise-title">THE 300 PROMISE[cite: 10]</h2>
+        <p class="promise-main-body">
+          <b>This wedding happens only if we get a minimum of 300 registrations.</b>[cite: 10] If we don’t reach 300, everyone’s amount is fully refunded and the wedding is either postponed or cancelled.[cite: 10]
+        </p>
+        <p class="promise-main-body" style="font-size:14px; opacity:0.9;">
+          The refund is made within 2 working days if the event is postponed or cancelled.[cite: 1] Exact date and banquet are shared once the minimum is confirmed.[cite: 10]
+        </p>
+        <div class="shagun-callout-pill">
+          ✨ You can make this shaadi happen by giving a shagun in advance!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKETS SECTION[cite: 1] -->
+  <section class="block-wrap" id="tickets">
+    <div class="section-meta-head">
+      <span class="section-eyebrow-tag">Entries Are Strictly Capped</span>
+      <h2 class="section-main-heading">Pick Your Pass</h2>
+      <p class="section-sub-copy">Registration is open on a first-come, first-served basis. All passes include the full food buffet.</p>
+    </div>
+
+    <div class="tickets-grid-wrap">
+      <div class="ticket-pass-box gold-best">
+        <span class="pass-tier-label">First 150 · Early Bird[cite: 1]</span>
+        <div class="pass-price-val">₹2,999[cite: 1]</div>
+        <span class="pass-sub-note">per person[cite: 1]</span>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeP4Cob_ebbn75_-JgjRkySUTtOxLyt70-odjgSwiytQNzfdg/viewform" target="_blank" rel="noopener" class="pass-buy-link">
+          Register Now →
+        </a>
+      </div>
+
+      <div class="ticket-pass-box">
+        <span class="pass-tier-label">Next 100 Crashers[cite: 1]</span>
+        <div class="pass-price-val">₹3,299[cite: 1]</div>
+        <span class="pass-sub-note">per person[cite: 1]</span>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeP4Cob_ebbn75_-JgjRkySUTtOxLyt70-odjgSwiytQNzfdg/viewform" target="_blank" rel="noopener" class="pass-buy-link">
+          Register Now →
+        </a>
+      </div>
+
+      <div class="ticket-pass-box">
+        <span class="pass-tier-label">Late Crashers[cite: 1]</span>
+        <div class="pass-price-val">₹3,499[cite: 1]</div>
+        <span class="pass-sub-note">per person[cite: 1]</span>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeP4Cob_ebbn75_-JgjRkySUTtOxLyt70-odjgSwiytQNzfdg/viewform" target="_blank" rel="noopener" class="pass-buy-link">
+          Register Now →
+        </a>
+      </div>
+
+      <div class="ticket-pass-box">
+        <span class="pass-tier-label">Couple Pass 💑[cite: 1]</span>
+        <div class="pass-price-val">₹5,999[cite: 1]</div>
+        <span class="pass-sub-note">valid for two[cite: 1]</span>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeP4Cob_ebbn75_-JgjRkySUTtOxLyt70-odjgSwiytQNzfdg/viewform" target="_blank" rel="noopener" class="pass-buy-link">
+          Register Now →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQS[cite: 1] -->
+  <section class="block-wrap" id="faq">
+    <div class="section-meta-head">
+      <span class="section-eyebrow-tag">Got Questions?</span>
+      <h2 class="section-main-heading">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq-accordion">
+      <details open>
+        <summary>What is Crash the Wedding in Delhi?[cite: 1]</summary>
+        <p>A wedding-themed party in Delhi NCR in December 2026: a big fat Delhi shaadi with live dhols, a baraat, games, stage acts, and a pure veg feast, without the relatives and awkward family questions.[cite: 1]</p>
+      </details>
+      <details>
+        <summary>Is it a real wedding?[cite: 1]</summary>
+        <p>No. It is a wedding that never existed, curated purely to celebrate the fun parts of an Indian wedding with zero formalities.[cite: 1]</p>
+      </details>
+      <details>
+        <summary>What if 300 registrations aren’t reached?[cite: 1]</summary>
+        <p>Everyone gets a full 100% refund within 2 working days if the minimum capacity isn't reached.[cite: 1]</p>
+      </details>
+      <details>
+        <summary>What is the dress code?[cite: 1]</summary>
+        <p>Your shaadi best! Kurtas, lehengas, sarees, Indo-western, or suits. Bring the full desi vibe.[cite: 1]</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       ONLY THIS INSTA HANDLE: @the_crashers_pov
+  ========================================================= -->
+  <section class="block-wrap">
+    <div class="section-meta-head">
+      <span class="section-eyebrow-tag">Stay Connected</span>
+      <h2 class="section-main-heading">Follow The Journey</h2>
+      <p class="section-sub-copy">Behind-the-scenes teasers, raw crashers' point of view, venue reveal updates, and Delhi wedding madness.</p>
+    </div>
+
+    <a href="https://www.instagram.com/the_crashers_pov?rpxt=MXF2OHZyM2ppNjVpdg%3D%3D" target="_blank" rel="noopener" class="insta-single-box">
+      <div class="insta-gradient-tile">IG</div>
+      <div class="insta-meta-wrap">
+        <b>@the_crashers_pov</b>
+        <span>Crashers’ point of view</span>
+      </div>
+    </a>
+  </section>
+
+</main>
+
+<!-- MOBILE BOTTOM DOCK -->
+<nav class="mobile-action-bar">
+  <a href="#" class="mobile-action-link">Home</a>
+  <a href="#sides" class="mobile-action-link">Sides</a>
+  <a href="#baraat-act" class="mobile-action-link">Baraat</a>
+  <a href="#tickets" class="mobile-action-link">Passes</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeP4Cob_ebbn75_-JgjRkySUTtOxLyt70-odjgSwiytQNzfdg/viewform" target="_blank" rel="noopener" class="mobile-action-link primary-cta">Register</a>
+</nav>
+
+<!-- SCRIPT: Sound, Curtains, Interactive Canvas & 300 Dot Matrix -->
+<script>
+  const curtainGate = document.getElementById('curtainGate');
+  const silentOpenBtn = document.getElementById('silentOpenBtn');
+  const audio = document.getElementById('weddingBgmAudio');
+  const toggleBtn = document.getElementById('audioToggleBtn');
+  const svgMuted = document.getElementById('svgMutedState');
+  const svgPlaying = document.getElementById('svgPlayingState');
+  const tiltPoster = document.getElementById('tiltPoster');
+
+  let isAudioPlaying = false;
+  let isGateOpening = false;
+
+  // 1. Confetti Burst Animation
+  const canvas = document.getElementById('confettiCanvas');
+  const ctx = canvas.getContext('2d');
+  let confettiPieces = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  function triggerConfettiBurst() {
+    const colors = ['#f5a623', '#8a0618', '#f28b97', '#ffffff', '#ffd27d'];
+    for (let i = 0; i < 90; i++) {
+      confettiPieces.push({
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        w: Math.random() * 8 + 4,
+        h: Math.random() * 6 + 4,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        vx: (Math.random() - 0.5) * 16,
+        vy: (Math.random() - 0.8) * 18,
+        rot: Math.random() * 360,
+        rotSpeed: (Math.random() - 0.5) * 10,
+        alpha: 1
+      });
+    }
+    requestAnimationFrame(renderConfetti);
+  }
+
+  function renderConfetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    confettiPieces.forEach((p, idx) => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.4;
+      p.rot += p.rotSpeed;
+      p.alpha -= 0.012;
+
+      ctx.save();
+      ctx.globalAlpha = Math.max(p.alpha, 0);
+      ctx.translate(p.x, p.y);
+      ctx.rotate((p.rot * Math.PI) / 180);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      ctx.restore();
+
+      if (p.alpha <= 0) {
+        confettiPieces.splice(idx, 1);
+      }
+    });
+
+    if (confettiPieces.length > 0) {
+      requestAnimationFrame(renderConfetti);
+    }
+  }
+
+  // 2. Cinematic Curtain Opening
+  function triggerCurtainOpening(playMusic) {
+    if (isGateOpening) return;
+    isGateOpening = true;
+
+    curtainGate.classList.add('knocking');
+
+    if (playMusic) {
+      audio.volume = 0.85;
+      audio.play().then(() => {
+        isAudioPlaying = true;
+        toggleBtn.classList.add('active-play');
+        svgMuted.style.display = 'none';
+        svgPlaying.style.display = 'block';
+      }).catch(err => {
+        console.warn('Playback blocked:', err);
+      });
+    }
+
+    setTimeout(() => {
+      curtainGate.classList.remove('knocking');
+      curtainGate.classList.add('opened');
+      triggerConfettiBurst();
+
+      setTimeout(() => {
+        document.body.classList.remove('gate-locked');
+      }, 500);
+
+      setTimeout(() => {
+        curtainGate.classList.add('departed');
+      }, 1300);
+    }, 450);
+  }
+
+  curtainGate.addEventListener('click', (e) => {
+    if (e.target.id === 'silentOpenBtn') {
+      triggerCurtainOpening(false);
+    } else {
+      triggerCurtainOpening(true);
+    }
+  });
+
+  // 3. Floating Audio Toggle
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (!isAudioPlaying) {
+      audio.play().then(() => {
+        isAudioPlaying = true;
+        toggleBtn.classList.add('active-play');
+        svgMuted.style.display = 'none';
+        svgPlaying.style.display = 'block';
+      }).catch(err => {
+        console.warn('Playback error:', err);
+      });
+    } else {
+      audio.pause();
+      isAudioPlaying = false;
+      toggleBtn.classList.remove('active-play');
+      svgMuted.style.display = 'block';
+      svgPlaying.style.display = 'none';
+    }
+  });
+
+  // 4. 3D Tilt Effect on Poster
+  if (tiltPoster && window.innerWidth > 960) {
+    tiltPoster.addEventListener('mousemove', (e) => {
+      const rect = tiltPoster.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      const rotateX = -(y / rect.height) * 14;
+      const rotateY = (x / rect.width) * 14;
+      tiltPoster.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    tiltPoster.addEventListener('mouseleave', () => {
+      tiltPoster.style.transform = 'perspective(1000px) rotate(1deg)';
+    });
+  }
+
+  // 5. Animated 300 Particles Dot Matrix Canvas
+  const dotsCanvas = document.getElementById('dotsCanvas300');
+  const dCtx = dotsCanvas.getContext('2d');
+  let dots = [];
+
+  function initDots300() {
+    const rect = dotsCanvas.parentElement.getBoundingClientRect();
+    dotsCanvas.width = rect.width || 340;
+    dotsCanvas.height = rect.height || 220;
+
+    const offCanvas = document.createElement('canvas');
+    offCanvas.width = dotsCanvas.width;
+    offCanvas.height = dotsCanvas.height;
+    const offCtx = offCanvas.getContext('2d');
+
+    offCtx.fillStyle = '#8a0618';
+    offCtx.font = `900 ${Math.floor(dotsCanvas.height * 0.78)}px 'Anton', Impact, sans-serif`;
+    offCtx.textAlign = 'center';
+    offCtx.textBaseline = 'middle';
+    offCtx.fillText('300', offCanvas.width / 2, offCanvas.height / 2);
+
+    const imgData = offCtx.getImageData(0, 0, offCanvas.width, offCanvas.height).data;
+    const targets = [];
+    const step = 6;
+
+    for (let y = 0; y < offCanvas.height; y += step) {
+      for (let x = 0; x < offCanvas.width; x += step) {
+        const index = (y * offCanvas.width + x) * 4;
+        if (imgData[index + 3] > 128) {
+          targets.push({ x, y });
+        }
+      }
+    }
+
+    dots = targets.map(t => ({
+      x: Math.random() * dotsCanvas.width,
+      y: Math.random() * dotsCanvas.height,
+      originX: t.x,
+      originY: t.y,
+      vx: (Math.random() - 0.5) * 2,
+      vy: (Math.random() - 0.5) * 2,
+      radius: Math.random() * 1.5 + 2,
+      color: Math.random() > 0.3 ? '#8a0618' : '#e59312'
+    }));
+  }
+
+  let mouseX = -1000;
+  let mouseY = -1000;
+  dotsCanvas.addEventListener('mousemove', (e) => {
+    const rect = dotsCanvas.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+  });
+  dotsCanvas.addEventListener('mouseleave', () => {
+    mouseX = -1000;
+    mouseY = -1000;
+  });
+
+  function renderDots300() {
+    dCtx.clearRect(0, 0, dotsCanvas.width, dotsCanvas.height);
+    dots.forEach(d => {
+      const dx = d.originX - d.x;
+      const dy = d.originY - d.y;
+      d.vx += dx * 0.05;
+      d.vy += dy * 0.05;
+
+      const mdx = d.x - mouseX;
+      const mdy = d.y - mouseY;
+      const dist = Math.sqrt(mdx * mdx + mdy * mdy);
+      if (dist < 45) {
+        const force = (45 - dist) / 45;
+        d.vx += (mdx / dist) * force * 5;
+        d.vy += (mdy / dist) * force * 5;
+      }
+
+      d.vx *= 0.82;
+      d.vy *= 0.82;
+      d.x += d.vx;
+      d.y += d.vy;
+
+      dCtx.beginPath();
+      dCtx.arc(d.x, d.y, d.radius, 0, Math.PI * 2);
+      dCtx.fillStyle = d.color;
+      dCtx.fill();
+    });
+    requestAnimationFrame(renderDots300);
+  }
+
+  window.addEventListener('resize', () => {
+    initDots300();
+  });
+  setTimeout(() => {
+    initDots300();
+    renderDots300();
+  }, 200);
+
+  // 6. Tab Switcher
+  function toggleSide(side) {
+    const brideBtn = document.getElementById('tabBrideBtn');
+    const groomBtn = document.getElementById('tabGroomBtn');
+    const bridePanel = document.getElementById('bridePanel');
+    const groomPanel = document.getElementById('groomPanel');
+
+    if (side === 'bride') {
+      brideBtn.classList.add('active');
+      groomBtn.classList.remove('active');
+      bridePanel.classList.add('active');
+      groomPanel.classList.remove('active');
+    } else {
+      groomBtn.classList.add('active');
+      brideBtn.classList.remove('active');
+      groomPanel.classList.add('active');
+      bridePanel.classList.remove('active');
+    }
+  }
+</script>
+
+</body>
+</html>
