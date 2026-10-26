@@ -326,7 +326,7 @@ main.main-area {
 }
 .poster-aspect {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5; /* Changed from 1/1 to taller vertical 4/5 aspect ratio */
   border-radius: var(--radius-md);
   overflow: hidden;
   background: #181818;
@@ -339,8 +339,8 @@ main.main-area {
 .poster-aspect img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain; /* Changed from cover to contain so text/poster edges aren't cut off */
+  background-color: #0b0b0b;
   display: block;
 }
 .code-box-meta {
@@ -571,7 +571,7 @@ main.main-area {
     padding: 8px;
   }
   .code-box-title {
-    font-size: 14px;
+    font-size: 13px;
   }
   .code-box-meta span {
     font-size: 11px;
@@ -604,14 +604,12 @@ main.main-area {
         </div>
       </li>
       <li>
-        <!-- Desktop link to elitecrashers.html -->
         <a href="elitecrashers.html" class="nav-link" id="nav-code01">
           <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
           Code 01 (Shaadi)
         </a>
       </li>
       <li>
-        <!-- Desktop link to festihunt.html -->
         <a href="festihunt.html" class="nav-link" id="nav-code02">
           <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
           Code 02 (Hunt)
@@ -625,7 +623,6 @@ main.main-area {
       </li>
     </ul>
 
-    <!-- Discreet Contact Drawer Link -->
     <div class="sidebar-footer">
       <a href="mailto:akshadd111@gmail.com?subject=Rihayi%20Desk%20Inquiry%20%7C%20Access%20%26%20Screening&body=Hi%20Rihayi%20Team%2C%0A%0AI%20am%20reaching%20out%20regarding%20the%20Delhi%20Winter%202026%20gatherings.%0A%0A-%20My%20Name%3A%0A-%20City%20Quadrant%20(e.g.%20South%20Delhi%20%2F%20Gurugram)%3A%0A-%20My%20Query%20%2F%20Collaboration%20Note%3A%0A%0ABest%2C" class="btn-concierge">
         <span>✉️ Official Concierge</span>
@@ -653,7 +650,7 @@ main.main-area {
     </div>
 
     <!-- ==============================================
-         VIEW 1: CODES HUB (SIDE-BY-SIDE MOBILE VIEW)
+         VIEW 1: CODES HUB
          ============================================== -->
     <section id="view-codes" class="view-panel active">
       <div class="hub-intro-card">
@@ -663,9 +660,9 @@ main.main-area {
         <span class="hand-written">Real people. Real moments.</span>
       </div>
 
-      <!-- SIDE-BY-SIDE 2 CODES (DIRECT LINKS TO NEW FILES) -->
+      <!-- SIDE-BY-SIDE 2 CODES -->
       <div class="codes-grid">
-        <!-- Code 01 Box -> elitecrashers.html -->
+        <!-- Code 01 Box -->
         <a href="elitecrashers.html" class="code-preview-box">
           <div class="poster-aspect">
             <img src="ec.img5.png" alt="Code 1: Elitecrashers" onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80'">
@@ -677,7 +674,7 @@ main.main-area {
           <span class="code-box-sub">Fake Shaadi • Live Baraat</span>
         </a>
 
-        <!-- Code 02 Box -> festihunt.html -->
+        <!-- Code 02 Box -->
         <a href="festihunt.html" class="code-preview-box">
           <div class="poster-aspect">
             <img src="ec.img6.png" alt="Code 2: Winter Festihunt" onerror="this.src='https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=600&q=80'">
@@ -765,7 +762,7 @@ main.main-area {
     </section>
 
     <!-- ==============================================
-         VIEW 2: COMMUNITY (3 EXCLUSIVE OUTPOSTS)
+         VIEW 2: COMMUNITY
          ============================================== -->
     <section id="view-community" class="view-panel">
       <div class="comm-hub-header">
@@ -775,7 +772,6 @@ main.main-area {
       </div>
 
       <div class="social-outposts-grid">
-        <!-- Reddit HQ -->
         <a href="https://www.reddit.com/user/Rihayi/" target="_blank" rel="noopener" class="social-card">
           <span class="social-badge">REDDIT DISPATCH</span>
           <h4 class="cinematic-font">u/Rihayi</h4>
@@ -785,7 +781,6 @@ main.main-area {
           </div>
         </a>
 
-        <!-- Instagram POV 1: Crashers -->
         <a href="https://www.instagram.com/the_crashers_pov?rpxt=MXF2OHZyM2ppNjVpdg%3D%3D" target="_blank" rel="noopener" class="social-card">
           <span class="social-badge">CRASH ARCHIVES</span>
           <h4 class="cinematic-font">@the_crashers_pov</h4>
@@ -795,7 +790,6 @@ main.main-area {
           </div>
         </a>
 
-        <!-- Instagram POV 2: Winter Club -->
         <a href="https://www.instagram.com/winterclub.social" target="_blank" rel="noopener" class="social-card">
           <span class="social-badge">WINTER LOUNGE</span>
           <h4 class="cinematic-font">@winterclub.social</h4>
@@ -816,12 +810,10 @@ main.main-area {
     <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
     Codes
   </button>
-  <!-- Mobile link to elitecrashers.html -->
   <a href="elitecrashers.html" class="mobile-nav-btn" id="m-nav-code01">
     <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
     Code 01
   </a>
-  <!-- Mobile link to festihunt.html -->
   <a href="festihunt.html" class="mobile-nav-btn" id="m-nav-code02">
     <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
     Code 02
@@ -832,7 +824,6 @@ main.main-area {
   </button>
 </nav>
 
-<!-- Scripts for View Switching and Accordion -->
 <script>
 function switchTab(tabId) {
   document.querySelectorAll('.view-panel').forEach(p => p.classList.remove('active'));
