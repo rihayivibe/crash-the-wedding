@@ -326,7 +326,7 @@ main.main-area {
 }
 .poster-aspect {
   width: 100%;
-  aspect-ratio: 4 / 5; /* Changed from 1/1 to taller vertical 4/5 aspect ratio */
+  aspect-ratio: 4 / 5;
   border-radius: var(--radius-md);
   overflow: hidden;
   background: #181818;
@@ -339,7 +339,7 @@ main.main-area {
 .poster-aspect img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Changed from cover to contain so text/poster edges aren't cut off */
+  object-fit: contain;
   background-color: #0b0b0b;
   display: block;
 }
@@ -470,7 +470,7 @@ main.main-area {
 }
 .social-outposts-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr); /* Updated to 2 columns since Reddit box was removed */
   gap: 14px;
 }
 .social-card {
@@ -768,19 +768,10 @@ main.main-area {
       <div class="comm-hub-header">
         <span class="hub-eyebrow">THE INNER CIRCLE</span>
         <h2 class="cinematic-font">Community Outposts</h2>
-        <p>Unfiltered Delhi threads, behind-the-scenes leaks, and clandestine dispatches across our three official channels.</p>
+        <p>Unfiltered Delhi threads, behind-the-scenes leaks, and clandestine dispatches across our official channels.</p>
       </div>
 
       <div class="social-outposts-grid">
-        <a href="https://www.reddit.com/user/Rihayi/" target="_blank" rel="noopener" class="social-card">
-          <span class="social-badge">REDDIT DISPATCH</span>
-          <h4 class="cinematic-font">u/Rihayi</h4>
-          <p>Read open confessions, city threads, AMA sessions, and unfiltered Delhi chatter from past gatherings.</p>
-          <div class="social-action">
-            <span>Join Discussion</span> →
-          </div>
-        </a>
-
         <a href="https://www.instagram.com/the_crashers_pov?rpxt=MXF2OHZyM2ppNjVpdg%3D%3D" target="_blank" rel="noopener" class="social-card">
           <span class="social-badge">CRASH ARCHIVES</span>
           <h4 class="cinematic-font">@the_crashers_pov</h4>
