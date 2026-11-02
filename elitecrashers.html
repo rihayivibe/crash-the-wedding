@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Crash the Wedding Delhi 2026 – No-Relatives Wedding Party</title>
-<meta name="description" content="Delhi NCR's wildest wedding-style party, December 2026: live dhol baraat, nagin dance, pure veg shaadi feast and games. No relatives. Passes from ₹2,999.">
+<meta name="description" content="Delhi NCR's wildest wedding-style party, December 2026: live dhol baraat, nagin dance, pure veg shaadi feast and games. No relatives. Direct registration via Google Form.">
 <meta name="theme-color" content="#3a0008">
 
 <!-- Fonts -->
@@ -483,7 +483,7 @@ main.container {
 }
 
 /* =========================================================
-   ACT 04 - BARAAT WITH LIVE DHOLS (ec.img2.png)[cite: 8]
+   ACT 04 - BARAAT WITH LIVE DHOLS (ec.img2.png)
 ========================================================= */
 .baraat-act-section {
   background: var(--bg-dark-wine);
@@ -561,7 +561,7 @@ main.container {
 }
 
 /* =========================================================
-   KYA-KYA MILEGA: YOUR PASS INCLUDES[cite: 9]
+   KYA-KYA MILEGA: YOUR PASS INCLUDES
 ========================================================= */
 .pass-includes-section {
   background: var(--bg-dark-wine);
@@ -647,7 +647,7 @@ main.container {
 }
 
 /* =========================================================
-   ANIMATED 300 PARTICLES DOT MATRIX PROMISE CARD[cite: 10]
+   ANIMATED 300 PARTICLES DOT MATRIX PROMISE CARD
 ========================================================= */
 .particles-300-promise-wrap {
   background: var(--bg-dark-wine);
@@ -842,66 +842,29 @@ section.block-wrap {
   line-height: 1.5;
 }
 
-/* TICKETS */
-.tickets-grid-wrap {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-.ticket-pass-box {
+/* REGISTRATION CARD (FORM LINK ONLY) */
+.single-register-card {
   background: #fff;
-  border: 1.5px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  padding: 24px 18px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s ease;
-  position: relative;
-}
-.ticket-pass-box:hover {
-  transform: translateY(-3px);
-}
-.ticket-pass-box.gold-best {
   border: 2px solid var(--marigold);
-  background: #fffdf9;
-  box-shadow: 0 10px 28px rgba(245, 166, 35, 0.18);
+  border-radius: var(--radius-lg);
+  padding: 40px 28px;
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+  box-shadow: 0 14px 36px rgba(245, 166, 35, 0.15);
 }
-
-.pass-tier-label {
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--shaadi-red);
-  margin-bottom: 6px;
-}
-.pass-price-val {
+.single-register-card h3 {
   font-family: 'Anton', sans-serif;
-  font-size: 42px;
-  color: #111;
-  line-height: 1;
-  margin: 6px 0;
-}
-.ticket-pass-box.gold-best .pass-price-val {
+  font-size: 32px;
   color: var(--shaadi-red);
+  text-transform: uppercase;
+  margin-bottom: 8px;
 }
-.pass-sub-note {
-  font-size: 12.5px;
-  color: var(--text-muted);
-  margin-bottom: 18px;
+.single-register-card p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin-bottom: 24px;
 }
-.pass-buy-link {
-  margin-top: auto;
-  background: var(--marigold);
-  color: #2b1400;
-  font-weight: 700;
-  padding: 10px 14px;
-  border-radius: var(--radius-pill);
-  font-size: 13px;
-  transition: opacity 0.15s;
-}
-.pass-buy-link:hover { opacity: 0.9; }
 
 /* FAQ ACCORDION */
 .faq-accordion {
@@ -1058,7 +1021,6 @@ details p {
   .baraat-act-section { grid-template-columns: 1fr; gap: 24px; padding: 30px 22px; }
   .pass-feature-grid { grid-template-columns: 1fr 1fr; }
   .promise-inner-card { grid-template-columns: 1fr; gap: 24px; padding: 28px 20px; }
-  .tickets-grid-wrap { grid-template-columns: 1fr 1fr; }
   .roles-triplet { grid-template-columns: 1fr; }
   .nav-links { display: none; }
 }
@@ -1066,7 +1028,6 @@ details p {
 @media (max-width: 600px) {
   main.container { padding: 18px 16px 110px; }
   .pass-feature-grid { grid-template-columns: 1fr; }
-  .tickets-grid-wrap { grid-template-columns: 1fr; }
   .side-selector-tabs { grid-template-columns: 1fr; }
   .mobile-action-bar { display: flex; }
   .floating-audio-ctrl {
@@ -1083,7 +1044,7 @@ details p {
 <canvas id="confettiCanvas"></canvas>
 
 <!-- =========================================================
-     CINEMATIC OPENING GATE OVERLAY[cite: 7]
+     CINEMATIC OPENING GATE OVERLAY
 ========================================================= -->
 <div id="curtainGate" role="dialog" aria-label="Wedding Gate: Tap to Enter">
   <div class="gate-toran" aria-hidden="true"></div>
@@ -1102,16 +1063,16 @@ details p {
   <button class="gate-silent-link" type="button" id="silentOpenBtn">Enter without music</button>
 </div>
 
-<!-- Marigold Floral Toran Garland across Top[cite: 1, 4] -->
+<!-- Marigold Floral Toran Garland across Top -->
 <div class="marigold-toran" aria-hidden="true"></div>
 
-<!-- Background Audio Loop with User's Files[cite: 1] -->
+<!-- Background Audio Loop with User's Files -->
 <audio id="weddingBgmAudio" loop preload="auto">
   <source src="baraat-dhol.mp3" type="audio/mpeg">
   <source src="baraat-dhol.mp3.mp3" type="audio/mpeg">
 </audio>
 
-<!-- FLOATING MUTE / UNMUTE BUTTON[cite: 5] -->
+<!-- FLOATING MUTE / UNMUTE BUTTON -->
 <button id="audioToggleBtn" class="floating-audio-ctrl" aria-label="Toggle background music" title="Mute / Unmute Music">
   <span class="playing-ping-dot"></span>
   <svg id="svgMutedState" viewBox="0 0 24 24">
@@ -1122,7 +1083,7 @@ details p {
   </svg>
 </button>
 
-<!-- STICKY SITE HEADER[cite: 1] -->
+<!-- STICKY SITE HEADER -->
 <header class="site-header">
   <div class="nav-wrap">
     <a href="#" class="logo-text">CRASH <span>THE</span> WEDDING</a>
@@ -1132,11 +1093,11 @@ details p {
       <li><a href="#baraat-act">Baraat</a></li>
       <li><a href="#pass-includes">Includes</a></li>
       <li><a href="#promise300">The 300</a></li>
-      <li><a href="#tickets">Tickets</a></li>
+      <li><a href="#register">Register</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
 
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeP4Cob_ebbn75_-JgjRkySUTtOxLyt70-odjgSwiytQNzfdg/viewform" target="_blank" rel="noopener" class="register-btn-top">
+    <a href="https://forms.gle/jtADvQ548RhjvWA66" target="_blank" rel="noopener" class="register-btn-top">
       Register Now
     </a>
   </div>
@@ -1144,7 +1105,7 @@ details p {
 
 <main class="container">
 
-  <!-- HERO SECTION[cite: 4] -->
+  <!-- HERO SECTION -->
   <section class="hero-layout">
     <div>
       <div class="devanagari-tag">शुभ विवाह</div>
@@ -1152,7 +1113,7 @@ details p {
         Crash <span class="pink-line">The</span> Wedding
       </h1>
       <p class="hero-lead-text">
-        Ever wanted to enjoy a big fat Delhi wedding without the nosy aunties, endless rituals, and awkward questions?[cite: 1] <b>This December, you can.</b>[cite: 1]
+        Ever wanted to enjoy a big fat Delhi wedding without the nosy aunties, endless rituals, and awkward questions? <b>This December, you can.</b>
       </p>
 
       <div class="chips-cluster">
@@ -1164,7 +1125,7 @@ details p {
       </div>
 
       <div class="hero-cta-row">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeP4Cob_ebbn75_-JgjRkySUTtOxLyt70-odjgSwiytQNzfdg/viewform" target="_blank" rel="noopener" class="btn-primary-action">
+        <a href="https://forms.gle/jtADvQ548RhjvWA66" target="_blank" rel="noopener" class="btn-primary-action">
           Register Now 🎟️
         </a>
         <a href="#sides" class="btn-ghost-action">
@@ -1173,7 +1134,7 @@ details p {
       </div>
     </div>
 
-    <!-- 3D Interactive Dialogue Poster[cite: 4] -->
+    <!-- 3D Interactive Dialogue Poster -->
     <div class="poster-hero-frame" id="tiltPoster">
       <div class="inner-dashed-box">
         <div class="devanagari-tag" style="color:var(--marigold);">शुभ विवाह</div>
@@ -1192,14 +1153,14 @@ details p {
     </div>
   </section>
 
-  <!-- TICKER STRIP[cite: 1] -->
+  <!-- TICKER STRIP -->
   <div class="ticker-band" aria-hidden="true">
     <div class="ticker-content">
-      Zero relatives ✦ Zero rituals ✦ Live dhols ✦ Mandatory nagin dance ✦ Shaadi ka khaana ✦ #ShoshebaaziWaliShaadi ✦ Zero relatives ✦ Zero rituals ✦ Live dhols ✦ Mandatory nagin dance ✦ Shaadi ka khaana ✦[cite: 1] 
+      Zero relatives ✦ Zero rituals ✦ Live dhols ✦ Mandatory nagin dance ✦ Shaadi ka khaana ✦ #ShoshebaaziWaliShaadi ✦ Zero relatives ✦ Zero rituals ✦ Live dhols ✦ Mandatory nagin dance ✦ Shaadi ka khaana ✦ 
     </div>
   </div>
 
-  <!-- SIDES SECTION[cite: 1] -->
+  <!-- SIDES SECTION -->
   <section class="block-wrap" id="sides">
     <div class="section-meta-head">
       <span class="section-eyebrow-tag">Ladki Wale vs Ladke Wale</span>
@@ -1218,7 +1179,7 @@ details p {
       </button>
     </div>
 
-    <!-- Bride Content[cite: 1] -->
+    <!-- Bride Content -->
     <div class="side-details-panel active" id="bridePanel">
       <h3 style="font-size:20px; color:var(--shaadi-red); margin-bottom:4px;">Aap Ho Mezbaan</h3>
       <p style="font-size:14px; color:var(--text-secondary);">You’re the host. The wedding is yours, so welcome everyone like family (the fun kind).</p>
@@ -1242,7 +1203,7 @@ details p {
       </div>
     </div>
 
-    <!-- Groom Content[cite: 1] -->
+    <!-- Groom Content -->
     <div class="side-details-panel" id="groomPanel">
       <h3 style="font-size:20px; color:var(--shaadi-red); margin-bottom:4px;">Aap Ho Baraati</h3>
       <p style="font-size:14px; color:var(--text-secondary);">You’re the baraat. Arrive loud, dance louder, and completely take over the dance floor.</p>
@@ -1268,83 +1229,83 @@ details p {
   </section>
 
   <!-- =========================================================
-       ACT 04 - BARAAT WITH LIVE DHOLS (ec.img2.png)[cite: 8]
+       ACT 04 - BARAAT WITH LIVE DHOLS (ec.img2.png)
   ========================================================= -->
   <section class="baraat-act-section" id="baraat-act">
     <div class="baraat-img-frame">
-      <img src="ec.img2.png" alt="Baraat band in red turbans under a pink and orange mandap at a Delhi wedding[cite: 1]" loading="lazy">
+      <img src="ec.img2.png" alt="Baraat band in red turbans under a pink and orange mandap at a Delhi wedding" loading="lazy">
     </div>
     <div class="baraat-text-content">
-      <span class="baraat-act-tag">ACT 04[cite: 8]</span>
-      <h2 class="baraat-act-title">BARAAT WITH LIVE DHOLS[cite: 8]</h2>
-      <div class="baraat-act-subtitle">FULL JOSH. ZERO FILTER.[cite: 8]</div>
+      <span class="baraat-act-tag">ACT 04</span>
+      <h2 class="baraat-act-title">BARAAT WITH LIVE DHOLS</h2>
+      <div class="baraat-act-subtitle">FULL JOSH. ZERO FILTER.</div>
       <p class="baraat-act-desc">
-        Brass, dhols and a crowd that refuses to stand still. Join the baraat, find your rhythm and yes, bring your best nagin moves 🐍. It’s mandatory.[cite: 8]
+        Brass, dhols and a crowd that refuses to stand still. Join the baraat, find your rhythm and yes, bring your best nagin moves 🐍. It’s mandatory.
       </p>
     </div>
   </section>
 
   <!-- =========================================================
-       KYA-KYA MILEGA: YOUR PASS INCLUDES[cite: 9]
+       KYA-KYA MILEGA: YOUR PASS INCLUDES
   ========================================================= -->
   <section class="pass-includes-section" id="pass-includes">
-    <span class="pass-includes-eyebrow">KYA-KYA MILEGA[cite: 9]</span>
-    <h2 class="pass-includes-heading">YOUR PASS INCLUDES[cite: 9]</h2>
-    <p class="pass-includes-sub">One pass. Everything a real shaadi has, minus the relatives.[cite: 9]</p>
+    <span class="pass-includes-eyebrow">KYA-KYA MILEGA</span>
+    <h2 class="pass-includes-heading">YOUR PASS INCLUDES</h2>
+    <p class="pass-includes-sub">One pass. Everything a real shaadi has, minus the relatives.</p>
 
     <div class="pass-feature-grid">
       <div class="feature-pill-card">
         <div class="f-icon">🍽️</div>
-        <h4>Full wedding-style food spread[cite: 9]</h4>
-        <p>Shaadi ka khaana, the way it should be. Pure veg.[cite: 9]</p>
+        <h4>Full wedding-style food spread</h4>
+        <p>Shaadi ka khaana, the way it should be. Pure veg.</p>
       </div>
 
       <div class="feature-pill-card">
         <div class="f-icon">🥁</div>
-        <h4>Baraat with live dhols[cite: 9]</h4>
-        <p>Full josh, and yes, a mandatory nagin dance 🐍[cite: 9]</p>
+        <h4>Baraat with live dhols</h4>
+        <p>Full josh, and yes, a mandatory nagin dance 🐍</p>
       </div>
 
       <div class="feature-pill-card">
         <div class="f-icon">🎧</div>
-        <h4>Live DJ + dance floor[cite: 9]</h4>
-        <p>Non-stop, till your feet give up.[cite: 9]</p>
+        <h4>Live DJ + dance floor</h4>
+        <p>Non-stop, till your feet give up.</p>
       </div>
 
       <div class="feature-pill-card">
         <div class="f-icon">🎮</div>
-        <h4>Wedding games[cite: 9]</h4>
-        <p>Fun, loud and competitive.[cite: 9]</p>
+        <h4>Wedding games</h4>
+        <p>Fun, loud and competitive.</p>
       </div>
 
       <div class="feature-pill-card">
         <div class="f-icon">🎤</div>
-        <h4>Live &amp; surprise performances[cite: 9]</h4>
-        <p>You might just be picked.[cite: 9]</p>
+        <h4>Live &amp; surprise performances</h4>
+        <p>You might just be picked.</p>
       </div>
 
       <div class="feature-pill-card">
         <div class="f-icon">💍</div>
-        <h4>Wedding vibes[cite: 9]</h4>
-        <p>No relatives, no chaos. Just the best parts of a shaadi.[cite: 9]</p>
+        <h4>Wedding vibes</h4>
+        <p>No relatives, no chaos. Just the best parts of a shaadi.</p>
       </div>
 
       <div class="feature-pill-card">
         <div class="f-icon">🎁</div>
-        <h4>Gifts for stars[cite: 9]</h4>
-        <p>Every stage performer and task winner gets a gift.[cite: 9]</p>
+        <h4>Gifts for stars</h4>
+        <p>Every stage performer and task winner gets a gift.</p>
       </div>
 
       <div class="feature-pill-card surprise-highlight">
         <div class="f-icon">🤫</div>
-        <h4>A secret surprise[cite: 9]</h4>
-        <p>It unfolds on the wedding day. We’re not telling.[cite: 9]</p>
+        <h4>A secret surprise</h4>
+        <p>It unfolds on the wedding day. We’re not telling.</p>
       </div>
     </div>
   </section>
 
   <!-- =========================================================
-       ANIMATED 300 PARTICLES DOT MATRIX PROMISE CARD[cite: 10]
+       ANIMATED 300 PARTICLES DOT MATRIX PROMISE CARD
   ========================================================= -->
   <section class="particles-300-promise-wrap" id="promise300">
     <div class="promise-inner-card">
@@ -1353,13 +1314,13 @@ details p {
       </div>
 
       <div class="promise-content-box">
-        <span class="promise-condition-tag">OUR TRANSPARENT CONDITION[cite: 10]</span>
-        <h2 class="promise-title">THE 300 PROMISE[cite: 10]</h2>
+        <span class="promise-condition-tag">OUR TRANSPARENT CONDITION</span>
+        <h2 class="promise-title">THE 300 PROMISE</h2>
         <p class="promise-main-body">
-          <b>This wedding happens only if we get a minimum of 300 registrations.</b>[cite: 10] If we don’t reach 300, everyone’s amount is fully refunded and the wedding is either postponed or cancelled.[cite: 10]
+          <b>This wedding happens only if we get a minimum of 300 registrations.</b> If we don’t reach 300, everyone’s amount is fully refunded and the wedding is either postponed or cancelled.
         </p>
         <p class="promise-main-body" style="font-size:14px; opacity:0.9;">
-          The refund is made within 2 working days if the event is postponed or cancelled.[cite: 1] Exact date and banquet are shared once the minimum is confirmed.[cite: 10]
+          The refund is made within 2 working days if the event is postponed or cancelled. Exact date and banquet are shared once the minimum is confirmed.
         </p>
         <div class="shagun-callout-pill">
           ✨ You can make this shaadi happen by giving a shagun in advance!
@@ -1368,54 +1329,24 @@ details p {
     </div>
   </section>
 
-  <!-- TICKETS SECTION[cite: 1] -->
-  <section class="block-wrap" id="tickets">
-    <div class="section-meta-head">
+  <!-- DIRECT REGISTRATION SECTION (SINGLE GOOGLE FORM PORTAL) -->
+  <section class="block-wrap" id="register">
+    <div class="section-meta-head" style="text-align: center;">
       <span class="section-eyebrow-tag">Entries Are Strictly Capped</span>
-      <h2 class="section-main-heading">Pick Your Pass</h2>
-      <p class="section-sub-copy">Registration is open on a first-come, first-served basis. All passes include the full food buffet.</p>
+      <h2 class="section-main-heading">Reserve Your Spot</h2>
+      <p class="section-sub-copy" style="margin: 6px auto 0;">Registration is open on a first-come, first-served basis. Fill out the official form below to register.</p>
     </div>
 
-    <div class="tickets-grid-wrap">
-      <div class="ticket-pass-box gold-best">
-        <span class="pass-tier-label">First 150 · Early Bird[cite: 1]</span>
-        <div class="pass-price-val">₹2,999[cite: 1]</div>
-        <span class="pass-sub-note">per person[cite: 1]</span>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeP4Cob_ebbn75_-JgjRkySUTtOxLyt70-odjgSwiytQNzfdg/viewform" target="_blank" rel="noopener" class="pass-buy-link">
-          Register Now →
-        </a>
-      </div>
-
-      <div class="ticket-pass-box">
-        <span class="pass-tier-label">Next 100 Crashers[cite: 1]</span>
-        <div class="pass-price-val">₹3,299[cite: 1]</div>
-        <span class="pass-sub-note">per person[cite: 1]</span>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeP4Cob_ebbn75_-JgjRkySUTtOxLyt70-odjgSwiytQNzfdg/viewform" target="_blank" rel="noopener" class="pass-buy-link">
-          Register Now →
-        </a>
-      </div>
-
-      <div class="ticket-pass-box">
-        <span class="pass-tier-label">Late Crashers[cite: 1]</span>
-        <div class="pass-price-val">₹3,499[cite: 1]</div>
-        <span class="pass-sub-note">per person[cite: 1]</span>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeP4Cob_ebbn75_-JgjRkySUTtOxLyt70-odjgSwiytQNzfdg/viewform" target="_blank" rel="noopener" class="pass-buy-link">
-          Register Now →
-        </a>
-      </div>
-
-      <div class="ticket-pass-box">
-        <span class="pass-tier-label">Couple Pass 💑[cite: 1]</span>
-        <div class="pass-price-val">₹5,999[cite: 1]</div>
-        <span class="pass-sub-note">valid for two[cite: 1]</span>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeP4Cob_ebbn75_-JgjRkySUTtOxLyt70-odjgSwiytQNzfdg/viewform" target="_blank" rel="noopener" class="pass-buy-link">
-          Register Now →
-        </a>
-      </div>
+    <div class="single-register-card">
+      <h3>Official Registration Form</h3>
+      <p>Click below to open the official Google Form, complete your registration details, and lock your pass for the event.</p>
+      <a href="https://forms.gle/jtADvQ548RhjvWA66" target="_blank" rel="noopener" class="btn-primary-action" style="padding: 16px 36px; font-size: 17px;">
+        Fill Google Form Now →
+      </a>
     </div>
   </section>
 
-  <!-- FAQS[cite: 1] -->
+  <!-- FAQS -->
   <section class="block-wrap" id="faq">
     <div class="section-meta-head">
       <span class="section-eyebrow-tag">Got Questions?</span>
@@ -1424,20 +1355,20 @@ details p {
 
     <div class="faq-accordion">
       <details open>
-        <summary>What is Crash the Wedding in Delhi?[cite: 1]</summary>
-        <p>A wedding-themed party in Delhi NCR in December 2026: a big fat Delhi shaadi with live dhols, a baraat, games, stage acts, and a pure veg feast, without the relatives and awkward family questions.[cite: 1]</p>
+        <summary>What is Crash the Wedding in Delhi?</summary>
+        <p>A wedding-themed party in Delhi NCR in December 2026: a big fat Delhi shaadi with live dhols, a baraat, games, stage acts, and a pure veg feast, without the relatives and awkward family questions.</p>
       </details>
       <details>
-        <summary>Is it a real wedding?[cite: 1]</summary>
-        <p>No. It is a wedding that never existed, curated purely to celebrate the fun parts of an Indian wedding with zero formalities.[cite: 1]</p>
+        <summary>Is it a real wedding?</summary>
+        <p>No. It is a wedding that never existed, curated purely to celebrate the fun parts of an Indian wedding with zero formalities.</p>
       </details>
       <details>
-        <summary>What if 300 registrations aren’t reached?[cite: 1]</summary>
-        <p>Everyone gets a full 100% refund within 2 working days if the minimum capacity isn't reached.[cite: 1]</p>
+        <summary>What if 300 registrations aren’t reached?</summary>
+        <p>Everyone gets a full 100% refund within 2 working days if the minimum capacity isn't reached.</p>
       </details>
       <details>
-        <summary>What is the dress code?[cite: 1]</summary>
-        <p>Your shaadi best! Kurtas, lehengas, sarees, Indo-western, or suits. Bring the full desi vibe.[cite: 1]</p>
+        <summary>What is the dress code?</summary>
+        <p>Your shaadi best! Kurtas, lehengas, sarees, Indo-western, or suits. Bring the full desi vibe.</p>
       </details>
     </div>
   </section>
@@ -1468,8 +1399,8 @@ details p {
   <a href="#" class="mobile-action-link">Home</a>
   <a href="#sides" class="mobile-action-link">Sides</a>
   <a href="#baraat-act" class="mobile-action-link">Baraat</a>
-  <a href="#tickets" class="mobile-action-link">Passes</a>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeP4Cob_ebbn75_-JgjRkySUTtOxLyt70-odjgSwiytQNzfdg/viewform" target="_blank" rel="noopener" class="mobile-action-link primary-cta">Register</a>
+  <a href="#register" class="mobile-action-link">Register</a>
+  <a href="https://forms.gle/jtADvQ548RhjvWA66" target="_blank" rel="noopener" class="mobile-action-link primary-cta">Form</a>
 </nav>
 
 <!-- SCRIPT: Sound, Curtains, Interactive Canvas & 300 Dot Matrix -->
