@@ -455,67 +455,51 @@ main.main-area {
 .faq-item.open .faq-icon { transform: rotate(45deg); color: var(--accent-gold); }
 .faq-icon { transition: transform 0.2s; font-size: 16px; font-weight: 700; }
 
-/* 4. COMMUNITY VIEW */
-.comm-hub-header {
+/* 2. RULES & POLICIES VIEW */
+.policy-hub-header {
   margin-bottom: 18px;
 }
-.comm-hub-header h2 {
+.policy-hub-header h2 {
   font-size: 28px;
   font-weight: 700;
 }
-.comm-hub-header p {
+.policy-hub-header p {
   color: var(--text-muted);
   font-size: 13px;
   margin-top: 2px;
 }
-.social-outposts-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Updated to 2 columns since Reddit box was removed */
-  gap: 14px;
+.policy-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
 }
-.social-card {
+.policy-card {
   background: var(--bg-card);
   border: 1px solid var(--border-muted);
   border-radius: var(--radius-lg);
-  padding: 20px 16px;
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.2s ease;
+  padding: 22px 24px;
 }
-.social-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--border-gold);
-  background: var(--bg-card-hover);
-}
-.social-badge {
-  font-size: 9.5px;
-  font-weight: 800;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
+.policy-card h3 {
+  font-size: 18px;
+  font-weight: 700;
   color: var(--accent-gold);
-  margin-bottom: 6px;
-}
-.social-card h4 {
-  font-size: 15.5px;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-.social-card p {
-  font-size: 12px;
-  color: var(--text-muted);
-  line-height: 1.45;
-  margin-bottom: 14px;
-  flex: 1;
-}
-.social-action {
-  font-size: 11.5px;
-  font-weight: 700;
-  color: var(--text-primary);
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
+}
+.policy-card p, .policy-card ul {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.policy-card ul {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+.policy-card li {
+  margin-bottom: 6px;
 }
 
 /* MOBILE BOTTOM BAR */
@@ -556,7 +540,6 @@ main.main-area {
   aside.sidebar { display: none; }
   main.main-area { padding: 14px 12px 90px; }
   .mobile-bottom-bar { display: flex; }
-  .social-outposts-grid { grid-template-columns: 1fr; }
   .protocols-grid { grid-template-columns: 1fr; }
   .hand-written { display: none; }
 }
@@ -616,9 +599,9 @@ main.main-area {
         </a>
       </li>
       <li>
-        <div class="nav-link" id="nav-community" onclick="switchTab('community')">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-          Community
+        <div class="nav-link" id="nav-policy" onclick="switchTab('policy')">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Rules & Policies
         </div>
       </li>
     </ul>
@@ -762,33 +745,46 @@ main.main-area {
     </section>
 
     <!-- ==============================================
-         VIEW 2: COMMUNITY
+         VIEW 2: RULES & POLICIES HUB
          ============================================== -->
-    <section id="view-community" class="view-panel">
-      <div class="comm-hub-header">
-        <span class="hub-eyebrow">THE INNER CIRCLE</span>
-        <h2 class="cinematic-font">Community Outposts</h2>
-        <p>Unfiltered Delhi threads, behind-the-scenes leaks, and clandestine dispatches across our official channels.</p>
+    <section id="view-policy" class="view-panel">
+      <div class="policy-hub-header">
+        <span class="hub-eyebrow">GUIDELINES & SAFEGUARDS</span>
+        <h2 class="cinematic-font">Rules, FAQ & Return Policy</h2>
+        <p>Complete operational transparency governing Rihayi gatherings, conduct standards, and refunds.</p>
       </div>
 
-      <div class="social-outposts-grid">
-        <a href="https://www.instagram.com/the_crashers_pov?rpxt=MXF2OHZyM2ppNjVpdg%3D%3D" target="_blank" rel="noopener" class="social-card">
-          <span class="social-badge">CRASH ARCHIVES</span>
-          <h4 class="cinematic-font">@the_crashers_pov</h4>
-          <p>Raw handheld POV clips, staged wedding rehearsal leaks, and unscripted baraat madness.</p>
-          <div class="social-action">
-            <span>Watch POV Reels</span> →
-          </div>
-        </a>
+      <div class="policy-grid">
+        <!-- Community Rules -->
+        <div class="policy-card">
+          <h3 class="cinematic-font">📜 Code of Conduct & Rules</h3>
+          <p>To maintain a high-vibe, safe, and comfortable environment for everyone, attendees must adhere to our community charter:</p>
+          <ul>
+            <li><strong>Zero Tolerance for Harassment:</strong> Unsolicited advances, non-consensual photography, or inappropriate behavior leads to immediate expulsion and permanent blacklisting.</li>
+            <li><strong>Confidentiality:</strong> Exact venue locations and private group coordinates are strictly confidential. Do not leak addresses publicly.</li>
+            <li><strong>Respectful Interaction:</strong> Rihayi is built for genuine offline social discovery. Keep an open mind, respect personal boundaries, and enjoy the night.</li>
+          </ul>
+        </div>
 
-        <a href="https://www.instagram.com/winterclub.social" target="_blank" rel="noopener" class="social-card">
-          <span class="social-badge">WINTER LOUNGE</span>
-          <h4 class="cinematic-font">@winterclub.social</h4>
-          <p>Secret rendezvous updates, Festihunt clue drops, aesthetic moodboards, and winter meetups.</p>
-          <div class="social-action">
-            <span>Visit Winter Club</span> →
-          </div>
-        </a>
+        <!-- FAQ Overview -->
+        <div class="policy-card">
+          <h3 class="cinematic-font">❓ Essential FAQs</h3>
+          <p><strong>Q: What happens if I miss the venue drop SMS?</strong><br>
+          A: Check your spam folder or reach out immediately through the Official Concierge button in the sidebar before doors open.</p>
+          <p style="margin-top: 10px;"><strong>Q: Are food and drinks included?</strong><br>
+          A: Yes! Standard passes include full access to the curated feast, beverages, and all interactive event programming.</p>
+        </div>
+
+        <!-- Return & Refund Policy -->
+        <div class="policy-card">
+          <h3 class="cinematic-font">🔄 Return & Refund Policy</h3>
+          <p>We maintain clear and fair terms regarding your registration shagun / contributions:</p>
+          <ul>
+            <li><strong>Threshold Cancellation:</strong> If our 300-attendee minimum threshold is not met, 100% of your contribution is refunded automatically within 48 hours.</li>
+            <li><strong>Personal Cancellations:</strong> Because passes are strictly identity-vetted and capacity is strictly capped at 300, personal ticket cancellations/refunds are evaluated on a case-by-case basis up to 5 days prior to the event date.</li>
+            <li><strong>Misconduct Forfeiture:</strong> Passes are instantly revoked without refund if a guest violates our Zero Harassment Charter or security protocols.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -809,9 +805,9 @@ main.main-area {
     <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
     Code 02
   </a>
-  <button class="mobile-nav-btn" id="m-nav-community" onclick="switchTab('community')">
-    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-    Community
+  <button class="mobile-nav-btn" id="m-nav-policy" onclick="switchTab('policy')">
+    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+    Rules & Policies
   </button>
 </nav>
 
